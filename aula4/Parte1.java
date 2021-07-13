@@ -1,5 +1,5 @@
-package aula4;
 import java.util.Scanner; //ler pelo teclado
+
 public class Parte1 {
     public static void main(String[] args){
 

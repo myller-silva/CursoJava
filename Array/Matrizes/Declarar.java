@@ -1,4 +1,4 @@
-public class Matriz {
+public class Declarar {
     public static void main(String[] args) {
         // DECLARAÇÃO:
         int[][] n1 = {{0,0,0}, {0,0,0}, {0,0,0}};

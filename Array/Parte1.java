@@ -3,7 +3,7 @@ public class Parte1 {
         final int tam=5;    //declaracao de constante
 
         int[] n=new int[tam];               //declaracao de array do tipo inteiro; por padrao, o java inicializa array de inteiros com zero
-        int[] x={5, 3, 67, 5, 3};           //declaracao e inicializacao de array do tipo inteiro; 
+        int[] x={5, 3, 67, 5, 3};           //declaracao e inicializacao de array do tipo inteiro
         
         System.out.print("N: ");
         for(int c=0; c<tam; c++){

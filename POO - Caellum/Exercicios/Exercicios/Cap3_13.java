@@ -20,24 +20,24 @@ public class Cap3_13 {
         //     }     
         // }
 
-        // 4
-        // for(int c=1; c<10; c++){
-        //     int fatorial=1;
-        //     System.out.printf("\n%d! = ", c);
-        //     for(int i=c; i>=1; i--){
-        //         fatorial *= i;
-        //     }
-        //     for(int i=c; i>=1; i--){
-        //         System.out.printf("%d", i);
-        //         if(i>1){
-        //             System.out.printf(" x ");
-        //         }else{
-        //             System.out.printf(" = ");
-        //         }
-        //     }
-        //     System.out.println(fatorial);
-        // }
-        
+        4
+        for(int c=1; c<10; c++){
+            int fatorial=1;
+            System.out.printf("\n%d! = ", c);
+            for(int i=c; i>=1; i--){
+                fatorial *= i;
+            }
+            for(int i=c; i>=1; i--){
+                System.out.printf("%d", i);
+                if(i>1){
+                    System.out.printf(" x ");
+                }else{
+                    System.out.printf(" = ");
+                }
+            }
+            System.out.println(fatorial);
+        }
+
 
     }
 }

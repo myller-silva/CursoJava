@@ -1,4 +1,4 @@
-public class Cap3_3{
+public class Cap3_03{
     public static void main(String[] args){
         // trimestre
         double janeiro = 15000;

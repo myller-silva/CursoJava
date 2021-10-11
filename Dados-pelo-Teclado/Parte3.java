@@ -27,5 +27,7 @@ public class Parte3 {
             sit = "Reprovado";
         }
         System.out.printf("\nAluno: %s\tMedia: %.2f\t%s\n\n", nome, me, sit);
+
+        scan.close();
     }
 }

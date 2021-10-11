@@ -9,5 +9,6 @@ public class Parte2 {
         nome = scan.nextLine();
         
         System.out.printf("Ola, %s! Seja bem-vindo\n\n", nome);
+        scan.close();
     }
 }

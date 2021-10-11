@@ -13,6 +13,6 @@ public class Parte1 {
         System.out.print("Segundo valor: ");
         n2 = scan.nextInt();
         resp = n1+n2;
-        System.out.printf("%d + %d = %d\n", n1, n2, resp);
+        System.out.printf("%d + %d = %d\n", n1, n2, resp);  
     }
 }

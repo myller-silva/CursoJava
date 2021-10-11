@@ -1,4 +1,3 @@
-
 public class C1{
     public static void main(String[] args) {
         //  tipo: Jogador, nome: j1,  valor: new Jogador()
@@ -13,8 +12,5 @@ public class C1{
         // j2.num = 10;
         // j3.num = 15;
         // System.out.printf("%d %d %d\n", j1.num, j2.num, j3.num);
-
-
-        
     }
 }

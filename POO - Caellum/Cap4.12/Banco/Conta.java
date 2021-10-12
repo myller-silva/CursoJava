@@ -2,6 +2,7 @@ public class Conta{
     int numero;
     Cliente titular;
     double saldo;
+    Data dataDeAbertura;
 
     boolean sacar(double valor){
         if(valor<=this.saldo){            
@@ -28,19 +29,14 @@ public class Conta{
             return true;
         }
     }
+    
     void exibir_dados(){
         System.out.printf("Numero: %d\n", this.numero);
         System.out.printf("Titular: %s\n", this.titular.nome);
         System.out.printf("Saldo: R$%.2f\n", this.saldo);
-                
+        System.out.printf("Data de abertura: %s\n", this.dataDeAbertura.formatada() ) ;                
     }
 
 
 
-}
-
-class Cliente{
-    String nome;
-    String sobrenome;
-    String cpf;
 }

@@ -7,10 +7,7 @@ public class TestaConta {
         minhaConta.dataDeAbertura = "12021999";
         minhaConta.numero = 521399;
         minhaConta.saldo = 1422.0;
-        minhaConta.exibirDados();
-        System.out.println( minhaConta.saldo - minhaConta.calcularRendimento() );
-
-
+        // minhaConta.exibirDados();
 
     }
 }

@@ -3,7 +3,7 @@ class Conta{
     int numero;
     String agencia;
     double saldo;
-    String data_de_abertura;
+    String dataDeAbertura;
 
     boolean sacar(double valor){
         if( 0<valor && valor<=this.saldo ){
@@ -23,6 +23,14 @@ class Conta{
 
     double calcularRendimento(){
         return this.saldo * 0.1;
+    }
+
+    void exibirDados(){
+        System.out.printf("\ntitular: %s\n", titular);
+        System.out.printf("numero: %s\n", numero);
+        System.out.printf("agencia: %s\n", agencia);
+        System.out.printf("saldo: %s\n", saldo);
+        System.out.printf("data de abertura: %s\n", dataDeAbertura);
     }
 
 }

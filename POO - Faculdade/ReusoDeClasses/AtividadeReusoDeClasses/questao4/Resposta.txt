@@ -1,0 +1,8 @@
+Erro 1:
+    um construtor da propria classe deve ser chamado por meio do "this"
+Erro 2: 
+    um construtor pode ser chamado dentro de outro construtor apenas na primeira linha de instrucoes
+Erro 3:
+    por padrao, o java inicia o tipo int com zero, logo nao é necessaria essa inicializacao na linha 6
+Erro 4: 
+    embora nao seja obrigatorio nesse caso, o ideal seria referenciar os elementos da propria classe por meio do "this.", a fim de deixar o codigo mais legivel

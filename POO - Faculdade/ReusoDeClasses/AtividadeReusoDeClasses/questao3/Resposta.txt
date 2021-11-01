@@ -1,0 +1,6 @@
+a saida deve ser:
+    PessoaFisica() com cpf 0
+    show ClientePF
+    ClientePF(999)
+    show PessoaFisica
+    ClientePF()

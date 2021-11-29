@@ -1,8 +1,9 @@
-public class Carro extends TransporteTerrestre implements Motorizado {
+public class Carro extends TransporteTerrestre implements Motorizado, Conduzivel {
     private int numeroCilindradas;
 
     @Override
     public void ligarMotor() {
+        
     }
 
     @Override
@@ -18,5 +19,11 @@ public class Carro extends TransporteTerrestre implements Motorizado {
 
     public void embraiar(){
 
+    }
+
+    @Override
+    public void curvar(float angulo) {
+        // TODO Auto-generated method stub
+        
     }
 }

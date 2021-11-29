@@ -1,4 +1,4 @@
-public class Aviao extends TransporteAereo implements Motorizado{
+public class Aviao extends TransporteAereo implements Motorizado, Conduzivel{
     private int numeroMotores;
     
     public boolean estaParado(){

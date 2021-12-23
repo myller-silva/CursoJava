@@ -1,4 +1,3 @@
-package swing;
 
 import javax.swing.JOptionPane;
 
@@ -23,11 +22,11 @@ public class TesteJOptionPane {
 			int resultado = calc.mdc(x, y);
 			
 			JOptionPane.showMessageDialog(null,
-					"O MDC de "+xStr+" e "+yStr+" é igual a "+resultado,
+					"O MDC de "+xStr+" e "+yStr+" ï¿½ igual a "+resultado,
 					"Calculadora MDC", JOptionPane.INFORMATION_MESSAGE);
 			
 			int opcao = JOptionPane.showConfirmDialog(null,
-					"Você deseja calcular outro MDC?",
+					"Vocï¿½ deseja calcular outro MDC?",
 					"Calculadora MDC", JOptionPane.YES_NO_OPTION);
 			
 			if (opcao!=JOptionPane.YES_OPTION) {

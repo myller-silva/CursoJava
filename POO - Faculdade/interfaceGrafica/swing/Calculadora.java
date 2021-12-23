@@ -1,5 +1,3 @@
-package swing;
-
 public class Calculadora {
 	public int mdc(int x, int y) {
 		while (x!=y) {

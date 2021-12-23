@@ -1,4 +1,3 @@
-package swing;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +10,7 @@ import javax.swing.JTextField;
 
 public class MainJFrame extends JFrame {
 	
-	// Rótulos
+	// Rï¿½tulos
 	private JLabel lbNumeroUm;
 	private JLabel lbNumeroDois;
 	private JLabel lbResultado;
@@ -19,7 +18,7 @@ public class MainJFrame extends JFrame {
 	private JTextField tfNumeroUm;
 	private JTextField tfNumeroDois;
 	private JTextField tfResultado;
-	// Botões
+	// Botï¿½es
 	private JButton btCalcular;
 	private JButton btSair;
 	
@@ -36,23 +35,23 @@ public class MainJFrame extends JFrame {
 		setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		// Rótulos
-		lbNumeroUm = new JLabel("Número 1:");
-		lbNumeroDois = new JLabel("Número 2:");
+		// Rï¿½tulos
+		lbNumeroUm = new JLabel("Nï¿½mero 1:");
+		lbNumeroDois = new JLabel("Nï¿½mero 2:");
 		lbResultado = new JLabel("Resultado:");
 		// Campos de texto
 		tfNumeroUm = new JTextField();
 		tfNumeroDois = new JTextField();
 		tfResultado = new JTextField();
 		tfResultado.setEditable(false);
-		// Botões
+		// Botï¿½es
 		btCalcular = new JButton("Calcular");
 		btSair = new JButton("Sair");
 		// Adicionar componentes
 		add(lbNumeroUm); add(lbNumeroDois); add(lbResultado);
 		add(tfNumeroUm); add(tfNumeroDois); add(tfResultado);
 		add(btCalcular); add(btSair);
-		// Configurar posições dos componentes
+		// Configurar posiï¿½ï¿½es dos componentes
 		lbNumeroUm.setBounds(10, 10, 70, 10);
 		lbNumeroDois.setBounds(10, 35, 70, 10);
 		lbResultado.setBounds(10, 60, 70, 10);
@@ -88,7 +87,7 @@ public class MainJFrame extends JFrame {
 					int resultado = calc.mdc(x, y);
 					tfResultado.setText(""+resultado);
 				} catch(NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "Você deve informar apenas números inteiros");
+					JOptionPane.showMessageDialog(null, "Vocï¿½ deve informar apenas nï¿½meros inteiros");
 					tfNumeroUm.setText("");
 					tfNumeroDois.setText("");
 					tfResultado.setText("");

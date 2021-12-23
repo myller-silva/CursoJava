@@ -1,4 +1,3 @@
-package swing;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -27,7 +26,7 @@ public class TesteJRadioButtton extends JFrame {
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		// Criar componentes
-		JLabel lbPergunta = new JLabel("Qual sua linguagem de programação preferida?");
+		JLabel lbPergunta = new JLabel("Qual sua linguagem de programaï¿½ï¿½o preferida?");
 		JRadioButton cbAssembly = new JRadioButton("Assembly");
 		JRadioButton cbC = new JRadioButton("C");
 		JRadioButton cbPlusPlus = new JRadioButton("C++");
@@ -36,11 +35,11 @@ public class TesteJRadioButtton extends JFrame {
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(cbAssembly); bg.add(cbC); bg.add(cbPlusPlus);
 		bg.add(cbJava); bg.add(cbPHP);
-		JButton btMostrar = new JButton("Mostre-me qual opção escolhi!");
+		JButton btMostrar = new JButton("Mostre-me qual opï¿½ï¿½o escolhi!");
 		// Configurar eventos
 		btMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String resultado = "Opção selecionada:\n";
+				String resultado = "Opï¿½ï¿½o selecionada:\n";
 				if (cbAssembly.isSelected())
 					resultado += "Assembly\n";
 				if (cbC.isSelected())

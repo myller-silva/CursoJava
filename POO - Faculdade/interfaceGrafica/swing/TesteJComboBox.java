@@ -1,4 +1,3 @@
-package swing;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,17 +7,15 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
-import javax.swing.ListSelectionModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 
-public class TesteJList extends JFrame {
+public class TesteJComboBox extends JFrame {
 	
-	public TesteJList() {
-		setTitle("TesteJList");
-		setSize(300,150);
+	public TesteJComboBox() {
+		setTitle("TesteJComboBox");
+		setSize(300,120);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		initComponents();
@@ -30,29 +27,28 @@ public class TesteJList extends JFrame {
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		// Criar componentes
-		JLabel lbPergunta = new JLabel("Qual sua linguagem de programação preferida?");
+		JLabel lbPergunta = new JLabel("Qual sua linguagem de programaï¿½ï¿½o preferida?");
 		String[] elementos = new String[] {
 			"Assembly", "C", "C++", "Java", "PHP"	
 		};
-		JList<String> lOpcoes = new JList<String>(elementos);
-		lOpcoes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JButton btMostrar = new JButton("Mostre-me qual opção escolhi!");
+		JComboBox cbOpcoes = new JComboBox(elementos);
+		JButton btMostrar = new JButton("Mostre-me qual opï¿½ï¿½o escolhi!");
 		// Configurar eventos
 		btMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String resultado = "Opção selecionada:\n";
-				resultado += lOpcoes.getSelectedValue();
+				String resultado = "Opï¿½ï¿½o selecionada:\n";
+				resultado += cbOpcoes.getSelectedItem();
 				JOptionPane.showMessageDialog(null, resultado);
 			}
 		});
 		// Adicionar componenentes
 		add(lbPergunta);
-		add(lOpcoes);
+		add(cbOpcoes);
 		add(btMostrar);
 	}
 
 	public static void main(String[] args) {
-		new TesteJList();
+		new TesteJComboBox();
 	}
 
 }

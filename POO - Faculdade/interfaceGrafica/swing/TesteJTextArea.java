@@ -1,5 +1,5 @@
-package swing;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,17 +8,19 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
-public class TesteJList extends JFrame {
+public class TesteJTextArea extends JFrame {
 	
-	public TesteJList() {
-		setTitle("TesteJList");
-		setSize(300,150);
+	public TesteJTextArea() {
+		setTitle("TesteJTextArea");
+		setSize(350,200);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		initComponents();
@@ -30,29 +32,27 @@ public class TesteJList extends JFrame {
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		// Criar componentes
-		JLabel lbPergunta = new JLabel("Qual sua linguagem de programação preferida?");
-		String[] elementos = new String[] {
-			"Assembly", "C", "C++", "Java", "PHP"	
-		};
-		JList<String> lOpcoes = new JList<String>(elementos);
-		lOpcoes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JButton btMostrar = new JButton("Mostre-me qual opção escolhi!");
+		JLabel lbPergunta = new JLabel("Quais suas linguagens de programaï¿½ï¿½o preferidas?");
+		JTextArea taOpcoes = new JTextArea(6,20);
+		//taOpcoes.setLineWrap(true);
+		JScrollPane pane = new JScrollPane(taOpcoes);
+		JButton btMostrar = new JButton("Mostre-me quais opï¿½ï¿½es escolhi!");
 		// Configurar eventos
 		btMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String resultado = "Opção selecionada:\n";
-				resultado += lOpcoes.getSelectedValue();
+				String resultado = "Opï¿½ï¿½es informadas:\n";
+				resultado += taOpcoes.getText();
 				JOptionPane.showMessageDialog(null, resultado);
 			}
 		});
 		// Adicionar componenentes
 		add(lbPergunta);
-		add(lOpcoes);
+		add(pane);
 		add(btMostrar);
 	}
 
 	public static void main(String[] args) {
-		new TesteJList();
+		new TesteJTextArea();
 	}
 
 }

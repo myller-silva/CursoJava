@@ -21,6 +21,8 @@ public class CadPessoa {
         }catch(Exception e){
             System.out.println("Operacao invalida. Nome nulo ou vazio");
         }
+
+        scan.close();
     }
 
 }

@@ -77,12 +77,6 @@ public class TesteJCheckBox extends JFrame {
         add(csharpe);
         add(python);
         add(btn);
-
-
-        
-
-
-
     }
 
     public static void main(String[] args) {

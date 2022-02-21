@@ -3,7 +3,7 @@ package Javadoc;
 /**
  * 
  * @author Mac Myller,
- * Estudante de Ciência da Computação no IFCE campus Maracanaú
+ * Estudante de Ciï¿½ncia da Computaï¿½ï¿½o no IFCE campus Maracanaï¿½
  *
  */
 

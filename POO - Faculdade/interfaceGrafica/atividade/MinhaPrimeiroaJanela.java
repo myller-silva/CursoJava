@@ -1,3 +1,4 @@
+
 // janela:
 import javax.swing.JFrame;
 // elementos:
@@ -18,12 +19,6 @@ public class MinhaPrimeiroaJanela {
         JLabel elemento1 = new JLabel("Ola, mundo!");
         // adicionar o elemento na janela:
         janela.add(elemento1);
-
-
         
-        
-
-
-
     }
 }

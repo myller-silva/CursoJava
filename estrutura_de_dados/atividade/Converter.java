@@ -50,6 +50,31 @@ public class Converter {
     }
     return str;
   }
+
+  // public static String transformar(String exp) {
+  //   String newExp = "";
+  //   int tam = exp.length();
+  //   char c = ' '; char prox = ' ';
+  //   for (int i = 0; i < tam-1; i++) {
+  //     c = exp.charAt(i);
+  //     prox = exp.charAt(i+1);
+      
+  //     if(c==')' && prox=='('){
+  //       newExp += c+"*"+prox;
+  //       i++;
+  //       continue;
+  //     }
+  //     newExp+=c;
+  //   }
+  //   if (prox!=' ') {
+  //     newExp+=prox;
+  //   }
+  //   return newExp;
+  // }
+  
+
+
+
   
 	public static Fila paraFila(String expressao) {
     if(expressao==null) return null;

@@ -1,0 +1,6 @@
+Mescla de listas ordenadas. Escreva um programa
+que mescle duas listas ordenadas de inteiros em uma
+única lista ordenada de inteiros. A função merge deverá
+receber ponteiros para o primeiro nó de cada uma das
+listas a serem mescladas, e deverá retornar um ponteiro
+para o primeiro nó da lista mesclada.

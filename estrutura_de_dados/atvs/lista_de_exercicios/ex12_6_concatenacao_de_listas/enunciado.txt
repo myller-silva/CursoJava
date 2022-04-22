@@ -1,0 +1,5 @@
+Concatenação de listas. Escreva um programa que
+concatene duas listas de caracteres encadeadas. O pro-
+grama deverá incluir a função concatenate, que recebe
+ponteiros para as duas listas como argumentos e conca-
+tena a segunda lista com a primeira.

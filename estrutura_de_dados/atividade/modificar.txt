@@ -1,0 +1,17 @@
+adicionar verificacao:
+  I - se tiver um numero antes de um abre
+  parenteses, deve adicionar um asterisco
+  antes do parenteses
+
+  II - se um operador + ou - aparece antes
+  de um numero, esse operador faz parte do
+  numero e indica o seu sinal
+
+  III - se um fecha parenteses aparecer
+  imediatamente antes de um abre parenteses,
+  deve adicionar um asterisco entre eles
+
+
+  
+
+

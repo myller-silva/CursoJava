@@ -1,0 +1,1 @@
+run="clear; javac atividade/Main.java ; java atividade/Main"

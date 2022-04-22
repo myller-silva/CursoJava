@@ -1,0 +1,16 @@
+I - criar um arquivo .txt 
+    para ser o manisfesto do projeto, 
+    com as informacoes:
+
+Main-Class: Main (class executavel)
+Name: Main.class (.class de onde ela será executada)
+Java-Bean: false (ativar ou desativar java-bean)
+
+
+II - criar .jar pelo prompt com o comando:
+  jar cfm NomeDoArqJar.jar NomeDoArqManifesto.txt Class1.class Class2.class (classes a serem incluidas no .jar)
+
+III - para executar, use o comando: 
+  java -jar NomeDoArqJar.jar
+
+IV - caso altere algo nas classes e queira atualizar, basta rodar o comando do passo II

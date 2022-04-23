@@ -1,7 +1,7 @@
 adicionar verificacao:
   I - se tiver um numero antes de um abre
   parenteses, deve adicionar um asterisco
-  antes do parenteses
+  antes do parenteses ::: ok
 
   II - se um operador + ou - aparece antes
   de um numero, esse operador faz parte do
@@ -9,7 +9,7 @@ adicionar verificacao:
 
   III - se um fecha parenteses aparecer
   imediatamente antes de um abre parenteses,
-  deve adicionar um asterisco entre eles
+  deve adicionar um asterisco entre eles ::: ok
 
 
   

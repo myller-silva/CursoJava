@@ -52,11 +52,9 @@ public class Check{
 		if(expressao == null) return false;
 		if(expressao.length<3) return false;
 		if(!parentesesOk(expressao)){
-      // System.out.println("parenteses errados");
       return false;
     }
 		if(!operadoresOk(expressao)){
-      // System.out.println("operadores errados");
 			return false;
 		}
 		if(haLetras(expressao)){

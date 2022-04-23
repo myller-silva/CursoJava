@@ -1,6 +1,6 @@
 package atividade;
 
 public class Node {
-  String value;
+  public String value;
   Node next;
 }

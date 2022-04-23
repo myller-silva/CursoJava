@@ -1,4 +1,5 @@
 import atividade.Calcular;
+import atividade.Converter;
 
 public class Testes {
   public static void main(String[] args) {
@@ -13,14 +14,16 @@ public class Testes {
       "25+432.0)*(1337+42+9.0",
       " 2 + 8 + ",
       "( 2 + .3)" ,
-      "2(12+12) ",
+      "2(12 + -12) ",
       "2(-12+11) ",
     };
+    int i = 9;
     
-    // String strPos = atividade.Converter.toPosfix(strs[i]);
-    // System.out.println(strs[i]);
-    // System.out.println(strPos);
-    // System.out.println(atividade.Calcular.expressaoPosfixa(strPos));
+    String strPos = Converter.toPosfix(strs[i]);
+    System.out.println(strs[i]);
+    System.out.println(strPos);    
+    System.out.println(Calcular.expressaoPosfixa(strPos));
+
     // System.out.println(atividade.Check.isDouble('-'+""+12));
 
     

@@ -148,9 +148,11 @@ public class Converter {
     }
     return novaFila;
   }
-	public static String expressaoMatematica(String str) {
+	
+  public static String expressaoMatematica(String str) {
     return paraFila_infixa(str).toString();
   }
+  
   private static int precedencia(String op) { 
     switch (op) {
       case "*":

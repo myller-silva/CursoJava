@@ -42,6 +42,10 @@ public class Fila {
     return true;
   }
 
+  public boolean push(char c) {
+    return this.push(String.format("%c", c));
+  }
+
   public boolean push(String item, int index) { //teste
     if(isFull()) return false;
     if(isEmpty() && index!=0) return false;
@@ -87,14 +91,15 @@ public class Fila {
   @Override
   public String toString() {
     Node temp = primeiro;
-    String str = "[ ";
+    String str="";
+    // str = "[ ";
     
     while(temp!=null){
       str += temp.value+" ";
       temp = temp.next;
     }
 
-    str+="]";
+    // str+="]";
     return str;
   }
   

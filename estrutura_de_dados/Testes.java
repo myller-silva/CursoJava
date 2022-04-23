@@ -1,27 +1,30 @@
 import atividade.Calcular;
-import atividade.Check;
-import atividade.Converter;
-import atividade.Fila;
 
 public class Testes {
   public static void main(String[] args) {
-    Fila fila = new Fila();
+    utils_my.Console.limparTela();
+    String[] strs={
+      "(12 -21)+31",
+      "(12-21)+31",
+      "(-21)+31",
+      "-21+31",
+      "(54+32.1)*(765-43)+2.1 ",
+      "(54+32.1)*(765+43)+2.1 + 1.0.0",
+      "25+432.0)*(1337+42+9.0",
+      " 2 + 8 + ",
+      "( 2 + .3)" ,
+      "2(12+12) ",
+      "2(-12+11) ",
+    };
 
-    // fila.push("mac");
-    // fila.push("myller");
-    // fila.push("silva");
-    fila.push("mac",0);
-    fila.push("myller", 2);
-    fila.push("silva", 0);
-    fila.push("joao", 2);
-    fila.push("matheus", 0);
-    fila.push("carlos", 2);
-    fila.push("jose", 12);
-    // matheus silva carlos mac joao 
+    int i=10;
+    
+    // String strPos = atividade.Converter.toPosfix(strs[i]);
+    // System.out.println(strs[i]);
+    // System.out.println(strPos);
+    // System.out.println(atividade.Calcular.expressaoPosfixa(strPos));
+    // System.out.println(atividade.Check.isDouble('-'+""+12));
 
-    System.out.println(fila);
-    System.out.println(fila.primeiro.value);
-    System.out.println(fila.ultimo.value);
-
-  }
+    
+  }  
 }

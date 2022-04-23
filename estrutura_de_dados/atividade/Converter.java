@@ -6,9 +6,9 @@ public class Converter {
     Pilha opStack = new Pilha();
 
     Fila postFixList = new Fila();
-    Fila tokenList = paraFila(exp);
+    Fila tokenList = paraFila_infixa(exp);
     if(!Check.isInfix(tokenList)){
-      return "expressao invalida";
+      return "nao é infixa";
     }
     
     Node token = tokenList.primeiro; 
@@ -50,9 +50,29 @@ public class Converter {
     }
     return str;
   }
-  
-  
-	public static Fila paraFila(String expressao) {
+
+  public static Fila paraFila_posfixa(String str) {
+    if(str==null) return null;
+    Fila fila = new Fila();
+    String num = "";
+		int tam = str.length();
+    for (int i = 0; i < tam; i++) {
+      char c = str.charAt(i);
+      do{
+        num+=c;
+        try{
+          c = str.charAt(++i);
+        }catch( StringIndexOutOfBoundsException e){
+          break;
+        }
+      }while(c!=' ');
+      fila.push(num);
+      num="";
+    }
+    return fila;
+  }
+
+	public static Fila paraFila_infixa(String expressao) {
     if(expressao==null) return null;
     
     Fila fila = new Fila();
@@ -62,27 +82,57 @@ public class Converter {
 		
     for (int i = 0; i < tam; i++) {
       char c = expressao.charAt(i);
-
-      if(Character.isDigit(c) || c=='.'){
-        num+=c;
-        continue;
-      }
-      if(!num.equals("")){
+      if(Character.isDigit(c)) {
+        do{
+          num+=c;
+          try{
+            c=expressao.charAt(++i);
+          }catch(StringIndexOutOfBoundsException e ){
+            break;
+          }
+        }while (Character.isDigit(c) || c=='.');
         fila.push(num);
-        num="";  
+        num="";
+        i--; continue;
       }
 			if(c==' ') continue;
+      
+      if (c=='-') {
+        String ant="";
+        try{
+          int aux=1;
+          while (ant.equals("")) {
+            char temp = expressao.charAt(i-aux);
+            if(temp==' ') aux++;
+            else ant += temp;
+          }
+        }catch(StringIndexOutOfBoundsException e){}
 
-      fila.push(String.format("%c", c));
+        if(!Check.isDouble(ant)){
+          do{
+            num+=c;
+            try{
+              c=expressao.charAt(++i);
+            }catch(StringIndexOutOfBoundsException e ){
+              break;
+            }
+          }while (Character.isDigit(c) || c=='.');
+          fila.push(num);
+          num="";
+          i--; continue;
+        }
+      }
+      fila.push(c); 
     }
 
     if(!num.equals("")){
       fila.push(num);
     }
-
-    return tratarExpressaoMatematica(fila);
+    
+    return expressaoMatematica(fila);
   }
-  public static Fila tratarExpressaoMatematica(Fila fila) {
+  
+  public static Fila expressaoMatematica(Fila fila) {
     if (fila==null) return null;
     Fila novaFila = new Fila();
     Node p = fila.primeiro;
@@ -98,7 +148,9 @@ public class Converter {
     }
     return novaFila;
   }
-	
+	public static String expressaoMatematica(String str) {
+    return paraFila_infixa(str).toString();
+  }
   private static int precedencia(String op) { 
     switch (op) {
       case "*":
@@ -115,5 +167,4 @@ public class Converter {
     }
   }
 
-  
 }

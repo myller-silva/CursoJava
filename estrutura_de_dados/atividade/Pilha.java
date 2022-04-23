@@ -1,8 +1,8 @@
 package atividade;
 
 public class Pilha{
-  Node primeiro; 
-  int length;
+  public Node primeiro; 
+  public int length;
   
   
   public Pilha(){

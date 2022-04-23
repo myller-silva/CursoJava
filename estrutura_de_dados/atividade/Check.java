@@ -97,7 +97,7 @@ public class Check{
 		String s="";
 		String prox="";
 		
-		if(isOper(expressao.primeiro.value)) return false;
+		// if(isOper(expressao.primeiro.value)) return false;
     
     Node i=expressao.primeiro;
     while (i.next.next!=null) {
@@ -108,6 +108,9 @@ public class Check{
       if(isOper(s)){
         if(isOper(ant) || isOper(prox) ) return false;
         if(isParenteses(ant) || isParenteses(prox) ){
+          if(Check.isDouble(prox)){ //obs
+            i=i.next;continue;
+          }
           if(ant.equals("(") || prox.equals(")")){
             return false;
           }
@@ -118,7 +121,7 @@ public class Check{
     }
 		
 		if(isOper(prox)) return false;
-		
+
 		return true;		
 	}
 

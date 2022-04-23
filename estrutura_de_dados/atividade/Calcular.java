@@ -11,10 +11,11 @@ public class Calcular {
 	public static String expressaoPosfixa(String expressao) {
     // verificar
     if (expressao==null) return "string nula";
-		if(!isPosfix(expressao)) return "expressao invalida";
-		
+    if(!isPosfix(expressao)) return "nao é posfixa";
+
     // calcular
-    Fila fila = Converter.paraFila(expressao);
+    Fila fila = Converter.paraFila_posfixa(expressao);
+    
 		if(fila==null) return null;
     Node f = fila.primeiro;
     Pilha pilha = new Pilha();
@@ -69,13 +70,13 @@ public class Calcular {
   public static boolean isPosfix(String str) {
     if (str==null) return false;
 
-    Fila lista = Converter.paraFila(str);
+    Fila lista = Converter.paraFila_posfixa(str);
 		
 		if(lista==null) return false;
 		
     if(lista.length<3) return false;
 
-    if( isOper(lista.primeiro.value) ) return false;
+    // if( isOper(lista.primeiro.value) ) return false;
 		
     // if( isOper(lista.primeiro.proximo.value) ) return false;
     if( !posfixaEmOrdem(lista) ) return false; //erro
@@ -87,7 +88,7 @@ public class Calcular {
     int aux=0;
     Node p = lista.primeiro;
     while (p!=null) {
-      if(p.value.equals(" ")) continue;			
+      // if(p.value.equals(" ")) continue;
       if(Check.isOper(p.value)){
         aux--;
       }else if(Check.isDouble(p.value)){
@@ -101,7 +102,7 @@ public class Calcular {
   }  
   
 	public static boolean posfixaEmOrdem(String expressao){
-		Fila filaExp = Converter.paraFila(expressao);
+		Fila filaExp = Converter.paraFila_infixa(expressao);
 		return posfixaEmOrdem(filaExp);		
 	}
 }

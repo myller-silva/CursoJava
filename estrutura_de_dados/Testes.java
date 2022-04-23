@@ -16,8 +16,6 @@ public class Testes {
       "2(12+12) ",
       "2(-12+11) ",
     };
-
-    int i=10;
     
     // String strPos = atividade.Converter.toPosfix(strs[i]);
     // System.out.println(strs[i]);

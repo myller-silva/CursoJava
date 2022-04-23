@@ -23,9 +23,6 @@ public class Testes {
     System.out.println(strs[i]);
     System.out.println(strPos);    
     System.out.println(Calcular.expressaoPosfixa(strPos));
-
-    // System.out.println(atividade.Check.isDouble('-'+""+12));
-
     
   }  
 }

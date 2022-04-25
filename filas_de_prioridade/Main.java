@@ -1,6 +1,6 @@
 public class Main{
 	public static void main(String args[]){
-		System.out.println("");	
+		System.out.println("hello world");	
 	}	
 }
 
@@ -17,6 +17,7 @@ class Node{
 	int id; 
 	int tempo; // [1, 10]
 	int tamanho; //[20, 200]	
+	boolean maisMemoria;
 	Node next;
 }
 

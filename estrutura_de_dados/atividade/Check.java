@@ -256,4 +256,49 @@ public class Check{
     return false;
   }
 
+  
+  
+  public static boolean isPosfix(String str) {
+    if (str==null) return false;
+
+    Fila lista = Converter.paraFila_posfixa(str);
+    System.out.println(lista);
+		
+		if(lista==null) return false;
+		
+    if(lista.length<3) return false;
+
+    if( isOper(lista.primeiro.value) ) return false;
+    if( isOper(lista.primeiro.next.value) ) return false;
+    if( !posfixaEmOrdem(lista) ) return false; 
+		
+    return true;
+  }
+  
+  public static boolean posfixaEmOrdem(Fila lista) {
+    if (lista==null) return false;
+    if (lista.isEmpty()) return false;
+
+    int aux=0;
+    Node p = lista.primeiro;
+
+    while (p!=null) {
+      if(Check.isOper(p.value)){
+        aux--;
+      }else if(Check.isDouble(p.value)){
+        aux++;
+      }else{
+        return false;
+      }
+      if(aux<=0) return false;
+      p=p.next;
+    }
+		return ( aux==1 ? true : false ) ;
+  }  
+  
+	public static boolean posfixaEmOrdem(String expressao){
+		Fila filaExp = Converter.paraFila_posfixa(expressao);
+		return posfixaEmOrdem(filaExp);		
+	}
+
 }

@@ -4,11 +4,12 @@ public class Converter {
 
   public static String toPosfix(String exp){
     Pilha opStack = new Pilha();
-
     Fila postFixList = new Fila();
     Fila tokenList = paraFila_infixa(exp);
+
     if(!Check.isInfix(tokenList)){
-      return "nao é infixa";
+      // return "nao é infixa";
+      return null;
     }
     
     Node token = tokenList.primeiro; 
@@ -54,8 +55,8 @@ public class Converter {
   public static Fila paraFila_posfixa(String str) {
     if(str==null) return null;
     Fila fila = new Fila();
-    String num = "";
 		int tam = str.length();
+    String num = "";
     for (int i = 0; i < tam; i++) {
       char c = str.charAt(i);
       do{
@@ -65,10 +66,32 @@ public class Converter {
         }catch( StringIndexOutOfBoundsException e){
           break;
         }
-      }while(c!=' ');
+      }while(c!=' ' );
       fila.push(num);
       num="";
+      
+      // if ( Check.isOper(c) ) {
+      //   fila.push(c);
+      //   continue;
+      // }
+      // do{
+      //   num+=c;
+      //   try{
+      //     c = str.charAt(++i);
+      //   }catch( StringIndexOutOfBoundsException e){
+      //     break;
+      //   }
+      // }while(c!=' ' );
+      // if(Check.isDouble(num)) {
+      //   fila.push(num);
+      // }
+      // num="";
+      // if(Check.isOper(c)) {
+      //   fila.push(c);
+      //   continue;
+      // }
     }
+    // System.out.println("str[tam-2]: " + str.charAt(tam-2));
     return fila;
   }
 
@@ -77,22 +100,22 @@ public class Converter {
     
     Fila fila = new Fila();
 		
-    String num = "";
+    String token = "";
 		int tam = expressao.length();
 		
     for (int i = 0; i < tam; i++) {
       char c = expressao.charAt(i);
       if(Character.isDigit(c)) {
         do{
-          num+=c;
+          token+=c;
           try{
             c=expressao.charAt(++i);
           }catch(StringIndexOutOfBoundsException e ){
             break;
           }
         }while (Character.isDigit(c) || c=='.');
-        fila.push(num);
-        num="";
+        fila.push(token);
+        token="";
         i--; continue;
       }
 			if(c==' ') continue;
@@ -107,26 +130,25 @@ public class Converter {
             else ant += temp;
           }
         }catch(StringIndexOutOfBoundsException e){}
-
-        if(!Check.isDouble(ant)){
+        if(!Check.isDouble(ant) && !Check.isOper(ant)){
           do{
-            num+=c;
+            token+=c;
             try{
               c=expressao.charAt(++i);
             }catch(StringIndexOutOfBoundsException e ){
               break;
             }
           }while (Character.isDigit(c) || c=='.');
-          fila.push(num);
-          num="";
+          fila.push(token);
+          token="";
           i--; continue;
         }
       }
       fila.push(c); 
     }
 
-    if(!num.equals("")){
-      fila.push(num);
+    if(!token.equals("")){
+      fila.push(token);
     }
     
     return expressaoMatematica(fila);

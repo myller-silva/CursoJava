@@ -1,4 +1,4 @@
-package atividade;
+package calculo_de_expressao.atividade;
 
 public class Main {
   public static void main(String[] args) {

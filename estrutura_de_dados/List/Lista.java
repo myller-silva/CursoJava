@@ -207,47 +207,5 @@ public class Lista {
     this.length += lista.length;
     return true;
   }
-
-  // public Node menor() {  
-  //   Node menor = this.primeiro;
-  //   Node temp = this.primeiro.proximo;
-  //   while(temp!=null){
-  //     if(menor.valor>temp.valor){
-  //       menor=temp;
-  //     }
-  //     temp = temp.proximo;
-  //   }
-  //   return menor;
-  // }
-
-  // public Node maior() {  
-  //   Node maior = this.primeiro;
-  //   Node temp = this.primeiro.proximo;
-  //   while(temp!=null){
-  //     if(maior.valor<temp.valor){
-  //       maior=temp;
-  //     }
-  //     temp = temp.proximo;
-  //   }
-  //   return maior;
-  // }
-
-  // public void sort() {
-  //   // this.print();
-  //   Node pivo = this.primeiro;
-  //   while (pivo != null) {
-  //       Node prox = pivo.proximo;
-  //       while (prox != null) {
-  //           if (pivo.valor > prox.valor) {
-  //               Node temp = new Node( pivo.valor );
-  //               pivo.valor = prox.valor;
-  //               prox.valor = temp.valor;
-  //           }
-  //           // this.print();
-  //           prox = prox.proximo;
-  //       }
-  //       pivo = pivo.proximo;
-  //   }
-  // }
-
+  
 }

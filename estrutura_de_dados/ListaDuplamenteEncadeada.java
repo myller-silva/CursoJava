@@ -1,7 +1,13 @@
 interface Lista {
-  public boolean add(String value);
-  public boolean remove(Node node);
+  public boolean addEnd(String value);
+  public boolean addStart(String value);
+  public boolean deleteEnd();
+  public boolean deleteStart();
+  public boolean delete(String value);
   public boolean isEmpty();
+  public boolean addBefore(String v1, String v2);
+  public boolean addAfter(String v1, String v2);
+  public boolean deleteAllReferences(String value);
 }
 
 
@@ -10,12 +16,17 @@ class Node{
   Node anterior;
   Node proximo;
   Node(){
-    anterior = proximo = null;
+    anterior = null;
+    proximo = null;
     value = null;
   }
   Node(String value){
     this();
     this.value=value;
+  }
+  @Override
+  public String toString() {
+    return this.value;
   }
 }
 
@@ -26,27 +37,220 @@ public class ListaDuplamenteEncadeada implements Lista{
     this.inicio=null;
     this.fim=null;
   }
+  private boolean delete(Node no){
+    System.out.println(no);
+    if(isEmpty()) return false;
+    if(no.equals(inicio)) return deleteStart();
+    if(no.equals(fim)) return deleteEnd();
+    Node ant = no.anterior;
+    Node prox = no.proximo;
+    ant.proximo = prox;
+    prox.anterior = ant;
+    return false;
+  }
+
   @Override
-  public boolean add(String value) {
+  public boolean delete(String value) {
+    if (isEmpty()) return false;
+    if (this.inicio.value.equals(value)) return deleteStart();
+    if (this.fim.value.equals(value)) return deleteEnd();
+
+    Node no = this.inicio.proximo;
+    while(no.proximo!=null){
+      if(no.value.equals(value)){
+        Node ant = no.anterior;
+        Node prox = no.proximo;
+        ant.proximo = prox;
+        prox.anterior = ant;
+        return true;
+      }            
+      no=no.proximo;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean deleteAllReferences(String value) {
+    if (isEmpty()) return false;
+    boolean excluido = false;
+
+    while (this.inicio.value.equals(value)) {
+      if(deleteStart()) excluido = true;
+      if (isEmpty()) return excluido;
+    }
+    while (this.fim.value.equals(value)) {
+      if(deleteEnd()) excluido = true;
+      if (isEmpty()) return excluido;
+    }
+
+    Node no = this.inicio;
+    int cont=0;
+
+    while(no!=null){
+      System.out.println(cont+++" no: "+no);
+      if(no.value.equals(value)){
+        Node ant = no.anterior;
+        Node prox = no.proximo;
+        ant.proximo = prox;
+        prox.anterior = ant;
+        excluido = true;
+      }
+      no=no.proximo;
+    }
+    return excluido;
+  }
+
+  @Override
+  public boolean addBefore(String v1, String v2){
+    if (v2.equals(this.inicio.value) )return  addStart(v1);
+    Node no = this.inicio;
+    while (no!=null) {
+      if(no.value.equals(v2)){
+        Node novo = new Node(v1);
+        novo.proximo = no;
+        novo.anterior = no.anterior;
+        no.anterior=novo;
+        novo.anterior.proximo=novo;
+        return true;
+      }      
+      no=no.proximo;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean addAfter(String v1, String v2){
+    Node no = this.inicio;
+    while (no.proximo!=null) {
+      if(no.value.equals(v2)){
+        Node novo = new Node(v1);
+        novo.proximo = no.proximo;
+        novo.anterior = no;
+        no.proximo.anterior = novo;
+        no.proximo = novo;
+        return true;
+      }      
+      no=no.proximo;
+    }
+    if (v2.equals(this.fim.value) )return  addEnd(v1);
+    return false;
+  }
+
+  @Override
+  public boolean addStart(String value) {
     if (value==null) return false;
     Node no = new Node(value);
     if (isEmpty()) {
-      this.inicio = no;
       no.anterior=null;
       no.proximo=null;
+      this.inicio=no;
+      this.fim=no;
+      return true;
     }
+    no.proximo = this.inicio;
+    this.inicio.anterior = no;
+    this.inicio =  no;
 
     return true;
   }
 
   @Override
-  public boolean remove(Node node) {
+  public boolean addEnd(String value) {
+    if (value==null) return false;
+    Node no = new Node(value);
+    if (isEmpty()) {
+      no.anterior=null;
+      no.proximo=null;
+      this.inicio=no;
+      this.fim=no;
+      return true;
+    }
+    no.proximo = null;
+    no.anterior = this.fim;
+    this.fim.proximo = no;
+    this.fim = no;  
+    return true;
+  }
+
+  @Override
+  public boolean deleteEnd() {
+    if (isEmpty()) return false;
+    if (this.fim.equals(this.inicio)) {
+      this.inicio=null;
+      this.fim=null;
+      return true;
+    }
+    this.fim = this.fim.anterior;
+    this.fim.proximo = null;
+    return true;
+  }
+
+  @Override
+  public boolean deleteStart() {
+    if (isEmpty()) return false;
+    if (this.fim.equals(this.inicio)) {
+      this.inicio = null;
+      this.fim = null;
+      return true;
+    }
+    this.inicio = this.inicio.proximo;
+    this.inicio.anterior = null;
     return false;
   }
+
   @Override
   public boolean isEmpty() {
     return (this.inicio==null && this.fim==null);
   }
+  
+  @Override
+  public String toString() {
+    Node no = this.inicio;
+    String str="";
+    while (no!=null) {
+      str+=no.value+" ";
+      no=no.proximo;
+    }
+    return str;
+  }
+  
+  public String toString(boolean inverso) {
+    if (!inverso) return this.toString();
+    String str="";
+    Node no = this.fim;
+    while (no!=null) {
+      str += no.value+" ";
+      no = no.anterior ;
+    }
+    return str;
+  }
+
 }
 
 
+class Main{
+  public static void main(String[] args) {
+    utils_my.Console.limparTela();
+
+    ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
+
+    
+    lista.addEnd("4");
+    // lista.addEnd("43");
+    lista.addEnd("4");
+    lista.addEnd("4");
+    lista.addStart("2");
+    lista.addStart("4");
+    lista.addStart("4");
+    lista.addBefore("0", "2");
+
+    System.out.println("lista: "+lista);
+    lista.deleteAllReferences("4");
+    lista.deleteAllReferences("0");
+    
+    System.out.println("lista: "+lista);
+    
+    System.out.println("\ninicio: "+lista.inicio);
+    System.out.println("fim: "+lista.fim);
+  }
+}

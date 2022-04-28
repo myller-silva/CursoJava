@@ -1,6 +1,6 @@
-package filas_de_prioridade.classes;
+package atvs.entregaveis.filas_de_prioridade.classes;
 
-import filas_de_prioridade.Lista;
+import atvs.entregaveis.filas_de_prioridade.Lista;
 
 public class ListaCircularPrograma implements Lista<NodePrograma> {
 	NodePrograma no1, no2;

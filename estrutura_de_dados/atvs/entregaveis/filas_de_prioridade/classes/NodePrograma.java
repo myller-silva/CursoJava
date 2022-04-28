@@ -1,4 +1,4 @@
-package filas_de_prioridade.classes;
+package atvs.entregaveis.filas_de_prioridade.classes;
 
 public class NodePrograma{
 	int id; 

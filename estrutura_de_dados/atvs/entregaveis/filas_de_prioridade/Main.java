@@ -1,6 +1,6 @@
-package filas_de_prioridade;
+package atvs.entregaveis.filas_de_prioridade;
 
-import filas_de_prioridade.classes.ListaCircularPrograma;
+import atvs.entregaveis.filas_de_prioridade.classes.ListaCircularPrograma;
 
 public class Main{
 	public static void main(String args[]){

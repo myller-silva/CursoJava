@@ -1,4 +1,4 @@
-public interface Lista {
+interface Lista {
   public boolean add(String value);
   public boolean remove(Node node);
   public boolean isEmpty();

@@ -1,4 +1,4 @@
-package calculo_de_expressao.atividade;
+package atvs.entregaveis.calculo_de_expressao.atividade;
 
 public class Fila {
   public Node primeiro; //front

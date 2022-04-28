@@ -1,4 +1,4 @@
-package filas_de_prioridade.classes;
+package atvs.entregaveis.filas_de_prioridade.classes;
 
 public class NodeMemoria{
 	int inicio; //0

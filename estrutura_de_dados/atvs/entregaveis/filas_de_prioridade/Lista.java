@@ -1,4 +1,4 @@
-package filas_de_prioridade;
+package atvs.entregaveis.filas_de_prioridade;
 
 public interface Lista<Type> {
   

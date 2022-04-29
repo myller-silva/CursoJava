@@ -226,7 +226,6 @@ public class ListaDuplamenteEncadeada implements Lista{
 
 }
 
-
 class Main{
   public static void main(String[] args) {
     utils_my.Console.limparTela();
@@ -242,7 +241,7 @@ class Main{
   public static String multiplicar(String num1, String num2) {
     String resultado = "";
     ListaDuplamenteEncadeada l1 = separar(num1);
-    ListaDuplamenteEncadeada l2 = separar(num2); //ok
+    ListaDuplamenteEncadeada l2 = separar(num2); 
 
     ListaDuplamenteEncadeada res = new ListaDuplamenteEncadeada();
     Node no1 = l1.fim;

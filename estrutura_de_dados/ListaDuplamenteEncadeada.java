@@ -10,7 +10,6 @@ interface Lista {
   public boolean deleteAllReferences(String value);
 }
 
-
 class Node{
   String value;
   Node anterior;
@@ -232,25 +231,88 @@ class Main{
   public static void main(String[] args) {
     utils_my.Console.limparTela();
 
+    String n1="9876";
+    String n2="5432";
+
+    multiplicar(n1, n2);
+
+    // System.out.println("resultado: "+ multiplicar(n1, n2) );
+  }
+
+  public static String multiplicar(String num1, String num2) {
+    String resultado = "";
+    ListaDuplamenteEncadeada l1 = separar(num1);
+    ListaDuplamenteEncadeada l2 = separar(num2); //ok
+
+    ListaDuplamenteEncadeada res = new ListaDuplamenteEncadeada();
+    Node no1 = l1.fim;
+    Node no2 = l2.fim;
+    int cont1=0;
+    int cont2=0;
+    
+    while (no2!=null) {
+      while (no1!=null) {
+        Double d1 = Math.pow(10, cont1);
+        Double d2 = Math.pow(10, cont2);
+        res.addEnd(operar(no1.value+d1, no2.value+d2)); //erro
+        res.addEnd("+");
+        no1=no1.anterior;
+        cont1++;
+      }
+      cont1=0;
+      no1 = l1.fim;
+      no2=no2.anterior;
+      cont2++;
+    }
+
+    res.deleteEnd();
+
+    System.out.println();
+    System.out.println(l2);
+    System.out.println(l1);
+    System.out.println();
+    System.out.println(res);
+    System.out.println();
+    return resultado;
+  }
+
+  private static String operar(String str1, String str2) {
+    double d1 = Double.parseDouble(str1);
+    double d2 = Double.parseDouble(str2);
+    return String.format("%.2f", d1*d2);
+  }
+  
+
+  public static ListaDuplamenteEncadeada separar(String str) {
     ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
+    int tam = str.length();
+    String num="";
 
-    
-    lista.addEnd("4");
-    // lista.addEnd("43");
-    lista.addEnd("4");
-    lista.addEnd("4");
-    lista.addStart("2");
-    lista.addStart("4");
-    lista.addStart("4");
-    lista.addBefore("0", "2");
-
-    System.out.println("lista: "+lista);
-    lista.deleteAllReferences("4");
-    lista.deleteAllReferences("0");
-    
-    System.out.println("lista: "+lista);
-    
-    System.out.println("\ninicio: "+lista.inicio);
-    System.out.println("fim: "+lista.fim);
+    if(tam%2==0){
+      for (int i = 0; i < tam; i++) {
+        char c = str.charAt(i);
+        num += c;
+        if (i%2==1) {
+          lista.addEnd(num);
+          num="";
+        }
+      }
+    }else{
+      num += str.charAt(0);
+      lista.addEnd(num);
+      num="";
+      for (int i = 1; i < tam; i++) {
+        char c = str.charAt(i);
+        num += c;
+        if (i%2==0) {
+          lista.addEnd(num);
+          num="";
+        }
+      }
+    }
+    // if (!num.equals("")) lista.addStart(num) ;
+    return lista;
   }
 }
+
+// 53.646.432

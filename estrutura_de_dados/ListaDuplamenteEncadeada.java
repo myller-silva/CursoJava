@@ -230,20 +230,17 @@ class Main{
   public static void main(String[] args) {
     utils_my.Console.limparTela();
 
-    String n1="9876";
-    String n2="5432";
+    String n1="98765";
+    String n2="65432";
+    // 98765 * 65432 = 6462391480
+    System.out.println("resultado: "+ multiplicar(n1, n2) );
 
-    multiplicar(n1, n2);
-
-    // System.out.println("resultado: "+ multiplicar(n1, n2) );
   }
 
   public static String multiplicar(String num1, String num2) {
-    String resultado = "";
     ListaDuplamenteEncadeada l1 = separar(num1);
-    ListaDuplamenteEncadeada l2 = separar(num2); 
-
-    ListaDuplamenteEncadeada res = new ListaDuplamenteEncadeada();
+    ListaDuplamenteEncadeada l2 = separar(num2);
+    ListaDuplamenteEncadeada parcelas = new ListaDuplamenteEncadeada();
     Node no1 = l1.fim;
     Node no2 = l2.fim;
     int cont1=0;
@@ -251,35 +248,50 @@ class Main{
     
     while (no2!=null) {
       while (no1!=null) {
-        Double d1 = Math.pow(10, cont1);
-        Double d2 = Math.pow(10, cont2);
-        res.addEnd(operar(no1.value+d1, no2.value+d2)); //erro
-        res.addEnd("+");
+        parcelas.addEnd(operar(no1.value, cont1, no2.value, cont2)); 
+        // parcelas.addEnd("+");
         no1=no1.anterior;
-        cont1++;
+        cont1+=2;
       }
       cont1=0;
       no1 = l1.fim;
       no2=no2.anterior;
-      cont2++;
+      cont2+=2;
     }
-
-    res.deleteEnd();
-
-    System.out.println();
-    System.out.println(l2);
-    System.out.println(l1);
-    System.out.println();
-    System.out.println(res);
-    System.out.println();
-    return resultado;
+    // parcelas.deleteEnd();
+    
+    System.out.printf("%15s\n", l1);
+    System.out.printf("%15s\n", l2);
+    System.out.printf("%14s\n\n", "______________");
+    
+    System.out.println("parcelas: "+parcelas+"\n");
+    
+    return somatorio(parcelas);
   }
 
-  private static String operar(String str1, String str2) {
+  private static String somatorio(ListaDuplamenteEncadeada lista) {
+    if (lista==null) return null;
+    if (lista.isEmpty()) return null;
+    double soma=0;
+    Node no = lista.inicio;
+    while (no!=null) {
+      try{
+        soma += Double.parseDouble(no.value);
+      } catch(Exception e){}
+      no=no.proximo;      
+    }
+    return String.format("%.0f", soma);
+  }
+
+
+  private static String operar(String str1, double pow1, String str2, double pow2) {
+    Double e1 = Math.pow(10, pow1);
+    Double e2 = Math.pow(10, pow2);
     double d1 = Double.parseDouble(str1);
     double d2 = Double.parseDouble(str2);
-    return String.format("%.2f", d1*d2);
+    return String.format("%.0f", d1*e1*d2*e2);
   }
+
   
 
   public static ListaDuplamenteEncadeada separar(String str) {
@@ -287,7 +299,7 @@ class Main{
     int tam = str.length();
     String num="";
 
-    if(tam%2==0){
+    if (tam%2==0) {
       for (int i = 0; i < tam; i++) {
         char c = str.charAt(i);
         num += c;
@@ -313,5 +325,3 @@ class Main{
     return lista;
   }
 }
-
-// 53.646.432

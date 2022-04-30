@@ -1,8 +1,13 @@
 public class Testes {
   public static void main(String[] args) {
     utils_my.Console.limparTela();
-    Math.pow(10, 3);
-    
-    System.out.println(Math.pow(10, 3));
+
+    String n = Operar.soma("12312", "123");
+    System.out.println("\n"+n);
   }  
 }
+
+// [48, 57]
+//  9876
+//  9876
+// 19752

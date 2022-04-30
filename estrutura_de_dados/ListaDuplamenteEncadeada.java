@@ -135,6 +135,14 @@ public class ListaDuplamenteEncadeada implements Lista{
     return false;
   }
 
+  public boolean addStart(int value){
+    // return addStart(""+value);
+    return addStart(String.format("%d",value));
+  }
+  public boolean addStart(double value){
+    return addStart(String.format("%.0f",value));
+  }
+
   @Override
   public boolean addStart(String value) {
     if (value==null) return false;
@@ -224,6 +232,16 @@ public class ListaDuplamenteEncadeada implements Lista{
     return str;
   }
 
+  public String str() {
+    String str="";
+    Node no = this.inicio;
+    while (no!=null) {
+      str += no.value;
+      no = no.proximo ;
+    }
+    return str;
+  }
+
 }
 
 class Main{
@@ -233,8 +251,8 @@ class Main{
     String n1="98765";
     String n2="65432";
     // 98765 * 65432 = 6462391480
-    System.out.println("resultado: "+ multiplicar(n1, n2) );
-
+    String resultado = multiplicar(n1, n2);
+    System.out.println("resultado: "+ resultado);
   }
 
   public static String multiplicar(String num1, String num2) {
@@ -283,7 +301,6 @@ class Main{
     return String.format("%.0f", soma);
   }
 
-
   private static String operar(String str1, double pow1, String str2, double pow2) {
     Double e1 = Math.pow(10, pow1);
     Double e2 = Math.pow(10, pow2);
@@ -291,8 +308,6 @@ class Main{
     double d2 = Double.parseDouble(str2);
     return String.format("%.0f", d1*e1*d2*e2);
   }
-
-  
 
   public static ListaDuplamenteEncadeada separar(String str) {
     ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();

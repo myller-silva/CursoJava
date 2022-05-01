@@ -104,9 +104,9 @@ public class Operar{
   }
 
   public static int multplicacaoKaratsuba(String n1, String n2){
-    System.out.println(n1+" x "+n2);    
-    if(n1.equals("0")) return 0;
-    if(n2.equals("0")) return 0;
+    // System.out.println(n1+" x "+n2);    
+    // if(n1.equals("0")) return 0;
+    // if(n2.equals("0")) return 0;
     String maior = n1, menor = n2;
     int tam1 = n1.length();
     int tam2 = n2.length();

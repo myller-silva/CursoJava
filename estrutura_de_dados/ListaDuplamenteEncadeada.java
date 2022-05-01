@@ -36,6 +36,7 @@ public class ListaDuplamenteEncadeada implements Lista{
     this.inicio=null;
     this.fim=null;
   }
+  /* 
   private boolean delete(Node no){
     System.out.println(no);
     if(isEmpty()) return false;
@@ -47,6 +48,7 @@ public class ListaDuplamenteEncadeada implements Lista{
     prox.anterior = ant;
     return false;
   }
+  */
 
   @Override
   public boolean delete(String value) {

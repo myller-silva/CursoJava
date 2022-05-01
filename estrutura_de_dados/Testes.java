@@ -1,13 +1,15 @@
 public class Testes {
   public static void main(String[] args) {
     utils_my.Console.limparTela();
+    String num1 = "987";
+    String num2 = "5432";
 
-    String n = Operar.soma("12312", "123");
-    System.out.println("\n"+n);
-  }  
+    int d1 = Operar.multplicacaoKaratsuba(num1, num2);
+    String d2 =  Operar.multplicacaoKaratsuba(num1, num2, true);
+    
+    System.out.printf("resultado: %d\n", d1);
+    System.out.println("resultado: "+ d2);
+    
+
+  } 
 }
-
-// [48, 57]
-//  9876
-//  9876
-// 19752

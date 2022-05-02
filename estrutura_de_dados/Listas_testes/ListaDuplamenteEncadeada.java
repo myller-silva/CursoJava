@@ -1,4 +1,4 @@
-package List_testes;
+package Listas_testes;
 
 interface Lista {
   public boolean addEnd(String value);

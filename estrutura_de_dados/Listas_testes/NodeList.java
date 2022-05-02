@@ -1,4 +1,4 @@
-package List_testes;
+package Listas_testes;
 
 public class NodeList {
   public String value;

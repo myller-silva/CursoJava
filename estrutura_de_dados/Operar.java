@@ -1,9 +1,9 @@
-import Lista.Lista_DuplamenteEncadeada;
+import Listas_testes.ListaDuplamenteEncadeada;
 
 public class Operar{
   
   public static String soma(String n1, String n2) {
-    Lista_DuplamenteEncadeada lista = new Lista_DuplamenteEncadeada();;
+    ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();;
     String str="";
     int buffer=0;
     int tam1 = n1.length();
@@ -45,7 +45,8 @@ public class Operar{
     str = lista.str();
     return str;
   }
-  private static void estouro(String maior, int buffer, Lista_DuplamenteEncadeada lista, int i) {
+  
+  private static void estouro(String maior, int buffer, ListaDuplamenteEncadeada lista, int i) {
     String restante = maior.substring(0, i+1);
     int tamr = restante.length();
     for (int j = tamr-1; j >=0; j--) { //
@@ -148,7 +149,6 @@ public class Operar{
 
     return computacao;
   }
-
   
   public static String multplicacaoKaratsuba(String n1, String n2, boolean string){
     String maior = n1, menor = n2;

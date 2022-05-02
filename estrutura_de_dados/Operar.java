@@ -1,7 +1,7 @@
 public class Operar{
   
   public static String soma(String n1, String n2) {
-    ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();;
+    Lista_DuplamenteEncadeada lista = new Lista_DuplamenteEncadeada();;
     String str="";
     int buffer=0;
     int tam1 = n1.length();
@@ -43,7 +43,7 @@ public class Operar{
     str = lista.str();
     return str;
   }
-  private static void estouro(String maior, int buffer, ListaDuplamenteEncadeada lista, int i) {
+  private static void estouro(String maior, int buffer, Lista_DuplamenteEncadeada lista, int i) {
     String restante = maior.substring(0, i+1);
     int tamr = restante.length();
     for (int j = tamr-1; j >=0; j--) { //

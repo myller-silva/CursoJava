@@ -6,11 +6,14 @@ class Main{
     String n1="98765";
     String n2="65432";
     // 98765 * 65432 = 6462391480
-    String resultado = multiplicar(n1, n2);
+    String resultado = MM_Math.multiplicar(n1, n2);
     System.out.println(n1+" x "+n2 +" = "+ resultado);
     System.out.println();
   }
+  
+}
 
+class MM_Math{
   public static String multiplicar(String num1, String num2) {
     Lista_DuplamenteEncadeada l1 = separar(num1);
     Lista_DuplamenteEncadeada l2 = separar(num2);
@@ -90,7 +93,11 @@ class Main{
     // if (!num.equals("")) lista.addStart(num) ;
     return lista;
   }
+
 }
+
+
+
 
 
 interface Lista {

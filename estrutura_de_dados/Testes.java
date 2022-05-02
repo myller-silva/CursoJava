@@ -12,6 +12,6 @@ public class Testes {
     
     System.out.printf("resultado: %d\n", d1);
     System.out.println("resultado: "+ d2);
-  }
-  
+  } 
+    
 }

@@ -1,3 +1,4 @@
+package Lista;
 class Main{
   public static void main(String[] args) {
     utils_my.Console.limparTela();
@@ -126,7 +127,7 @@ class Node{
 public class Lista_DuplamenteEncadeada implements Lista{
   Node inicio;
   Node fim;
-  Lista_DuplamenteEncadeada(){
+  public Lista_DuplamenteEncadeada(){
     this.inicio=null;
     this.fim=null;
   }

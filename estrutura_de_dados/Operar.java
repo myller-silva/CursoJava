@@ -1,3 +1,5 @@
+import Lista.Lista_DuplamenteEncadeada;
+
 public class Operar{
   
   public static String soma(String n1, String n2) {

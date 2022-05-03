@@ -1,4 +1,4 @@
-package atividade;
+package Listas_testes;
 
 interface Lista {
   public boolean addEnd(String value);
@@ -12,12 +12,29 @@ interface Lista {
   public boolean deleteAllReferences(String value);
 }
 
+class Node{
+  String value;
+  Node anterior;
+  Node proximo;
+  Node(){
+    anterior = null;
+    proximo = null;
+    value = null;
+  }
+  Node(String value){
+    this();
+    this.value=value;
+  }
+  @Override
+  public String toString() {
+    return this.value;
+  }
+}
 
-
-public class ListaDupla implements Lista{
+public class Lista_Dupla implements Lista{
   Node inicio;
   Node fim;
-  public ListaDupla(){
+  public Lista_Dupla(){
     this.inicio=null;
     this.fim=null;
   }
@@ -123,13 +140,11 @@ public class ListaDupla implements Lista{
   }
 
   public boolean addStart(int value){
-    return addStart(String.format("%d", value));
-  }
-  public boolean addStart(char value){
-    return addStart(String.format("%c", value));
+    // return addStart(""+value);
+    return addStart(String.format("%d",value));
   }
   public boolean addStart(double value){
-    return addStart(String.format("%.0f", value));
+    return addStart(String.format("%.0f",value));
   }
 
   @Override
@@ -149,10 +164,7 @@ public class ListaDupla implements Lista{
 
     return true;
   }
-  public boolean addEnd(char value) {
-    return addEnd(String.format("%c",value));
-  }
-  
+
   @Override
   public boolean addEnd(String value) {
     if (value==null) return false;
@@ -235,4 +247,5 @@ public class ListaDupla implements Lista{
   }
 
 }
+
 

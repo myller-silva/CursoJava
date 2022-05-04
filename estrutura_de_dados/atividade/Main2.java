@@ -4,13 +4,13 @@ public class Main2 {
   public static void main(String[] args) {
     utils_my.Console.limparTela();
     
-    String n1="4321";
-    String n2="321";
+    String n1="4568";
+    String n2="123";
     String resultado = multiplicar(n1,n2);
     
     System.out.printf("%20s\n", n1);
     System.out.printf("%20s\n", n2);
-    System.out.printf("%20s", "x__________\n");
+    System.out.printf("%21s", "x__________\n");
     System.out.printf("%20s\n", resultado);
   }
 
@@ -27,56 +27,58 @@ public class Main2 {
     ListaDupla listaMaior = particionar(strMaior);
     ListaDupla listaMenor = particionar(strMenor);
 
-    Node node1 = listaMenor.fim;
-    Node node2 = listaMaior.fim;
+    Node calda1 = listaMenor.fim;
+    Node calda2 = listaMaior.fim;
     
     // calcular:
     ListaDupla resultado = new ListaDupla();
+    calda1=listaMenor.fim;
     Node nodeAux = null;
-    node1=listaMenor.fim;
 
-    while (node1!=null) {
-      node2=listaMaior.fim;
-      int op1 = Integer.parseInt(node1.value);
+    while (calda1!=null) {
+      calda2=listaMaior.fim;
+      int op1 = Integer.parseInt(calda1.value);
       ListaDupla listaAux = new ListaDupla();
-      while (node2!=null) {
-        int op2 = Integer.parseInt(node2.value);
-        buffer = operar(op1, op2, buffer, listaAux);
-        node2 = node2.anterior;
-        if (node2==null){
-          listaAux.addStart(buffer);
-          buffer=0;
-        }
+      
+      listaAux.addStart("0");
+      while (calda2!=null) {
+        int op2 = Integer.parseInt(calda2.value);
+        buffer = Integer.parseInt(listaAux.inicio.value);
+        res = op1*op2+buffer; 
+        System.out.println(op1+" x "+op2+" + "+buffer+" = "+ res);
+        buffer = res/100;
+        res -= buffer*100;
+        listaAux.inicio.value = ""+res;
+        listaAux.addStart(buffer);
+        calda2 = calda2.anterior;
       }
-      if(nodeAux==null) {
-        resultado = copy(listaAux);
-      }else{
-        int bufferSomatorio = somatorio(listaAux, nodeAux);
-        if (bufferSomatorio!=0) resultado.addStart(bufferSomatorio);
-      }
-      nodeAux = (nodeAux==null)?resultado.fim.anterior : nodeAux.anterior;
-      node1=node1.anterior;
+      System.out.println("nodeAux: "+nodeAux+"\n");
+      System.out.println("lista aux: "+listaAux+"\n");
+      if (nodeAux==null) resultado = copy(listaAux);
+      else somatorio(resultado, listaAux, nodeAux);
+
+      nodeAux = (nodeAux==null) ? resultado.fim.anterior : nodeAux.anterior;
+      calda1=calda1.anterior;
     }
     
-    return resultado.str();
+    return resultado.toString();
+    // return resultado.str();
   }
 
-  public static int somatorio(ListaDupla listaAux, Node nodeAux){
-    int buffer=0, res=0;
-    Node no = listaAux.fim;
-    while (nodeAux!=null) {
+  public static void somatorio(ListaDupla lista, ListaDupla aux, Node no) {
+    while (!aux.isEmpty()) {
       int n1 = Integer.parseInt(no.value);
-      int n2 = Integer.parseInt(nodeAux.value);
-      res = n1 + n2 + buffer;
-      buffer = res/100;
-      res -= buffer*100; 
-      nodeAux.value = ""+res;
-      no = no.anterior;
-      nodeAux = nodeAux.anterior;      
+      int n2 = Integer.parseInt(aux.fim.value);
+      int res = n1+n2;
+      int buffer = res / 100;
+      res -= buffer*100;
+      no.value = ""+res;
+      lista.addStart(buffer);
+      no=no.anterior;
+      aux.deleteEnd();
     }
-    return buffer;
   }
-
+  
   public static ListaDupla copy(ListaDupla lista) {
     ListaDupla temp = new ListaDupla();
     while (!lista.isEmpty()) {
@@ -85,15 +87,7 @@ public class Main2 {
     }
     return temp;
   }
-
-  public static int operar(int n1, int n2, int buffer, ListaDupla lista) {
-    int res = n1*n2+buffer;
-    System.out.printf("%d x %d + %d = %d \n", n1, n2, buffer, res);
-    buffer = res / 100;
-    res -= buffer*100;
-    lista.addStart(res);
-    return buffer;
-  }
+  
 
   public static ListaDupla particionar(String str) {
     ListaDupla lista = new ListaDupla();

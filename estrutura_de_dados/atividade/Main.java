@@ -3,114 +3,84 @@ package atividade;
 public class Main {
   public static void main(String[] args) {
     utils_my.Console.limparTela();
-    String num1 = "54321";
-    String num2 = "321";
-    String resultado = multiplicar2(num1, num2);
     
+    String n1="1234567898765432123456789876543212345678987654321";
+    String n2="1234567898765432123456789876543212345678987654321";
+
+    String resultado = multiplicar(n1,n2);
+    int length = resultado.length();
+    String format = "%"+length+"s\n";
+    System.out.printf(format, n1);
+    System.out.printf(format, n2);
+    System.out.printf(format, "x__________");
+    System.out.printf(format, resultado);
+    // System.out.println("\tlength: "+length);
+    System.out.println();
   }
-
-  public static String multiplicar2(String str1, String str2) {
-    String strMaior=str1, strMenor=str2;
-    int tamMaior = str1.length(), tamMenor = str2.length(), buffer = 0, res = 0;
-
-    if (tamMaior < tamMenor) {
-      strMaior = str2; strMenor = str1;
-      int temp = tamMaior;
-      tamMaior = tamMenor; tamMenor = temp;
-    }
-
-    ListaDupla resultado = new ListaDupla();
-    ListaDupla listaMaior = particionar(strMaior);
-    ListaDupla listaMenor = particionar(strMenor);
-    
-    Node caldaMenor = listaMenor.fim;
-    Node aux = null;
-
-    while (caldaMenor!=null) {
-      System.out.println("___________________");
-      System.out.println("aux: "+aux);
-      Node caldaMaior = listaMaior.fim;
-      int n1 = Integer.parseInt(caldaMenor.value);
-      while (caldaMaior!=null) {
-        int n2 = Integer.parseInt(caldaMaior.value);
-        buffer = operar(n1, n2, buffer, resultado);
-        caldaMaior = caldaMaior.anterior;
-        if (caldaMaior==null) {
-          resultado.addStart(buffer);
-          buffer=0;
-        }
-      }
-      aux = (aux==null)? resultado.fim.anterior : aux.anterior; //obs
-      if (aux == null) break;
-
-      System.out.println("resultado: "+resultado);
-      caldaMenor = caldaMenor.anterior;
-    }
-    return resultado.str();
-  }
-  
-
-  public static int operar(int n1, int n2, int buffer, ListaDupla lista) {
-    int res = n1*n2+buffer;
-    System.out.printf("%d x %d + %d = %d \n", n1, n2, buffer, res);
-    buffer = res / 100;
-    res -= buffer*100;
-    lista.addStart(res);
-    return buffer;
-  }
-
-
-
-  /*
 
   public static String multiplicar(String str1, String str2) {
     String strMaior=str1, strMenor=str2;
-    int tamMaior = str1.length(), tamMenor = str2.length(), buffer = 0, res = 0;
+    int tamMaior = str1.length(), tamMenor = str2.length();
 
-    if (tamMaior < tamMenor) {
+    if(tamMaior < tamMenor) {
       strMaior = str2; strMenor = str1;
       int temp = tamMaior;
       tamMaior = tamMenor; tamMenor = temp;
     }
-
-    ListaDupla resultado = new ListaDupla();
     ListaDupla listaMaior = particionar(strMaior);
     ListaDupla listaMenor = particionar(strMenor);
-    
-    Node caldaMenor = listaMenor.fim;
-    while (caldaMenor!=null){
-      System.out.println("___________________");
-      Node caldaMaior = listaMaior.fim;
-      int n1 = Integer.parseInt(caldaMenor.value);
-      while(caldaMaior!=null){
-        int n2 = Integer.parseInt(caldaMaior.value);
-        res = n1*n2+buffer;
-        System.out.printf("%d x %d + %d = %d \n", n1, n2, buffer, res);
-        buffer = res / 100;
+    Node calda1 = listaMenor.fim;
+    Node calda2 = listaMaior.fim;
+    // preencher:
+    ListaDupla resultado = gerarListaDupla(calda1, calda2);
+    // calcular:
+    calda1 = listaMenor.fim; calda2 = listaMaior.fim;
+    Node aux = resultado.fim;
+    Node aux2 = aux;
+    int buffer=0;
+    while (calda1!=null) {
+      calda2 = listaMaior.fim;
+      int n1 = Integer.parseInt(calda1.value);
+      aux2 = aux;
+      while (calda2!=null) {
+        int n2 = Integer.parseInt(calda2.value);
+        buffer = Integer.parseInt(aux2.value);
+        int res = n1*n2+buffer;
+        buffer = res/100;
         res -= buffer*100;
-        resultado.addStart(res);
-        caldaMaior = caldaMaior.anterior;
-        if (caldaMaior==null) {
-          resultado.addStart(buffer);
-          buffer=0;
-        }
-      }      
-      System.out.println("resultado: "+resultado);
-      caldaMenor = caldaMenor.anterior;
+        aux2.value = (res<9)? "0"+res : ""+res ;
+        buffer += Integer.parseInt(aux2.anterior.value);
+        aux2.anterior.value = (buffer<9) ? "0"+buffer: ""+buffer;
+        aux2=aux2.anterior;
+        calda2 = calda2.anterior;
+      }
+      aux=aux.anterior;
+      calda1=calda1.anterior;
     }
+    while(nulo(resultado.inicio.value)) resultado.deleteStart();
+    resultado.inicio.value = ""+Integer.parseInt(resultado.inicio.value);
     return resultado.str();
+    // return resultado.toString();
   }
-   */
+  public static ListaDupla gerarListaDupla(Node calda1, Node calda2) {
+    ListaDupla lista = new ListaDupla();
+    while (calda1!=null) {
+      lista.addStart("0");
+      while (calda2!=null) {
+        lista.addStart("0");
+        calda2 = calda2.anterior;
+      }
+      calda1 = calda1.anterior;
+    }
+    return lista;
+  }
 
+  public static boolean nulo(String num) {
+    Integer n = Integer.parseInt(num);
+    return n==0?true:false;
+  }
   
-
-
-
   
-   
-
-
-
   public static ListaDupla particionar(String str) {
     ListaDupla lista = new ListaDupla();
     int tam = str.length();
@@ -138,69 +108,4 @@ public class Main {
     }
     return lista;
   }
-
-  /*
-  public static String multiplicar(String str1, String str2) {
-    String strMaior=str1, strMenor=str2;
-    int tam1 = str1.length();
-    int tam2 = str2.length();
-    int tamMaior = tam1;
-    int tamMenor = tam2;
-    
-    if (tam1 < tam2) {
-      strMaior = str2;
-      strMenor = str1;
-      tamMaior = tam2;
-      tamMenor = tam1;
-    }
-    ListaDupla listaMaior = particionarDoisADois(strMaior);
-    ListaDupla listaMenor = particionarDoisADois(strMenor);
-    ListaDupla resultado = new ListaDupla();
-    int buffer = 0;
-    int res = 0; 
-    
-    Node caldaMenor = listaMenor.fim;
-
-    while (caldaMenor!=null){
-      Node caldaMaior = listaMaior.fim;
-      int n1 = Integer.parseInt(caldaMenor.value);
-      do{
-        // System.out.println("buffer: "+buffer);
-        int n2 = Integer.parseInt(caldaMaior.value);
-        System.out.print(caldaMenor+" x "+caldaMaior+" + "+buffer+" = ");
-        res = n1*n2+buffer;
-        System.out.println(res);
-        if(res>99) {
-          buffer = res/100;
-          res = res-(buffer*100);
-          System.out.println("buffer: "+buffer);
-          System.out.println("add: "+res);   
-        }else{
-          buffer=0;
-        }
-        resultado.addStart(String.format("%2d", res));
-        caldaMaior = caldaMaior.anterior;
-        System.out.println();
-      }while(caldaMaior!=null);
-      caldaMenor = caldaMenor.anterior;
-    }
-    System.out.println("resultado: "+resultado);
-    return resultado.str();
-  }
-  */
-  
 }
-// 9 87 65
-//   54 32
-
-
-// int topo=0;
-// try{
-//   topo = Integer.parseInt(resultado.inicio.value);
-//   resultado.deleteStart();
-// }catch(Exception e){}
-// int add = topo + res;
-// if(add>99){
-//   buffer += add/100;
-//   add -= (add/100)*100;
-// }

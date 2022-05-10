@@ -32,8 +32,8 @@ public class MM_Math {
     }
     while(nulo(resultado.inicio.value)) resultado.deleteStart();
     resultado.inicio.value = ""+Integer.parseInt(resultado.inicio.value);
-    return resultado.str();
-    // return resultado.toString();
+    // return resultado.str();
+    return resultado.toString(); //
   }
 
   private static ListaDupla gerarListaDupla(Node calda1, Node calda2) {

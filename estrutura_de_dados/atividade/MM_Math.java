@@ -1,8 +1,8 @@
 package atividade;
 
 public class MM_Math {
-  /*
-  public static String multiplicar(String str1, String str2) {
+
+  public static String multiplicar2(String str1, String str2) {
     ListaDupla lista2 = gerarListaDupla(str2);
     ListaDupla lista1 = gerarListaDupla(str1);
     Node calda1 = lista1.fim;
@@ -56,7 +56,7 @@ public class MM_Math {
         calda2 = calda2.anterior;
       }
       aux = ( aux==null  ) ? resultado.fim.anterior : aux.anterior;
-      System.out.println();
+      // System.out.println();
       calda1=calda1.anterior;
     }
     System.out.println();
@@ -64,8 +64,10 @@ public class MM_Math {
     // return resultado.str();
   }
 
+  public static int toInt(String str) {
+    return Integer.parseInt(str);
+  }
   
-  */
   
   public static String multiplicar(String str1, String str2) {
     ListaDupla lista2 = gerarListaDupla(str2);
@@ -97,8 +99,8 @@ public class MM_Math {
     }
     while(nulo(resultado.inicio.value)) resultado.deleteStart();
     resultado.inicio.value = ""+Integer.parseInt(resultado.inicio.value);
-    // return resultado.str();
-    return resultado.toString(); //
+    return resultado.str();
+    // return resultado.toString(); //
   }
 
   private static ListaDupla gerarListaDupla(Node calda1, Node calda2) {

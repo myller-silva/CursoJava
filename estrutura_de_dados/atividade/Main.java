@@ -31,7 +31,6 @@ public class Main {
       System.out.printf(format, str2 );
       System.out.printf(format, "x____" );
       System.out.printf(format+"\n", resultado );
-
       do{
         System.out.print("Continuar? [S/N] ");
         esc = scan.nextLine();

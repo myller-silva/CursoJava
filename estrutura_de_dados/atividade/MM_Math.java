@@ -1,6 +1,71 @@
 package atividade;
 
 public class MM_Math {
+  /*
+  public static String multiplicar(String str1, String str2) {
+    ListaDupla lista2 = gerarListaDupla(str2);
+    ListaDupla lista1 = gerarListaDupla(str1);
+    Node calda1 = lista1.fim;
+    Node calda2 = lista2.fim;
+
+    ListaDupla resultado = new ListaDupla();
+
+    int buffer=0, n1=0, n2=0, res=0;
+    
+    Node aux = null;
+    Node aux2 = null;
+       
+    while (calda1!=null) {
+      calda2 = lista2.fim;
+      n1 = toInt(calda1.value);
+      aux2 = aux;
+      while (calda2!=null) {
+        n2 = toInt(calda2.value);
+        res = n1*n2;
+        if(aux2!=null){
+          res += toInt(aux2.value);
+          buffer = res/100 ;
+          res -= buffer*100;
+          aux2.value = ""+res;
+          if(aux2.anterior==null){
+            if(calda2.anterior!=null){
+              resultado.addStart(buffer);
+            }else{
+              if (buffer!=0) resultado.addStart(buffer);
+            }
+          }else{
+            aux2.anterior.value = ""+(buffer+toInt(aux2.anterior.value));
+          }
+        }else if( resultado.inicio!=null ){
+          res += toInt(resultado.inicio.value);
+          buffer = res/100;
+          res -= buffer*100;
+          resultado.inicio.value = ""+res;
+          if(calda2.anterior!=null) {
+            resultado.addStart(buffer);
+          }else if(buffer!=0){
+            resultado.addStart(buffer);
+          }
+        }else{
+          buffer = res/100;
+          res -= buffer*100;
+          resultado.addStart(res);
+          resultado.addStart(buffer);
+        }
+        if(aux2!=null) aux2 = aux2.anterior;
+        calda2 = calda2.anterior;
+      }
+      aux = ( aux==null  ) ? resultado.fim.anterior : aux.anterior;
+      System.out.println();
+      calda1=calda1.anterior;
+    }
+    System.out.println();
+    return resultado.toString();
+    // return resultado.str();
+  }
+
+  
+  */
   
   public static String multiplicar(String str1, String str2) {
     ListaDupla lista2 = gerarListaDupla(str2);

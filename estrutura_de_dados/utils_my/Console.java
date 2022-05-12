@@ -15,7 +15,7 @@ public class Console {
     try{
       Console.clear();
     }catch(Exception e){
-      System.out.println(e);
+      System.err.println(e);
     }
   }
 

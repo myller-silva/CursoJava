@@ -114,12 +114,12 @@ public class MM_Math {
   }
 
   private static ListaDupla fatiar(String str) {
-    ListaDupla lista =  new ListaDupla();
+    ListaDupla lista = new ListaDupla();
     int length = str.length(), init = 0;
 
-    if(length%2==1) lista.addEnd(str.charAt(init++));
-    for(int i = init; i < length; i+=2) lista.addEnd(str.substring(i, i+2)); 
-
+    if(length%2==1) lista.addEnd( str.charAt(init++) );
+    for(int i = init; i < length; i+=2) lista.addEnd( str.substring(i, i+2) ); 
+    
     return lista;
   }
   

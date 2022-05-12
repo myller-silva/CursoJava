@@ -58,11 +58,6 @@ public class MM_Math {
     // return resultado.str();
   }
 
-  public static int toInt(String str) {
-    return Integer.parseInt(str);
-  }
-  
-  
   public static String multiplicar(String str1, String str2) {
     ListaDupla lista1 = fatiar(str1), lista2 = fatiar(str2);
     Node calda1 = lista1.fim, calda2 = lista2.fim;
@@ -72,17 +67,17 @@ public class MM_Math {
 
     while (calda1!=null) {
       calda2 = lista2.fim;
-      n1 = Integer.parseInt(calda1.value);
+      n1 = toInt(calda1.value);
       Node aux2 = aux;
       while (calda2!=null) {
-        n2 = Integer.parseInt(calda2.value);
-        buffer = Integer.parseInt(aux2.value);
+        n2 = toInt(calda2.value);
+        buffer = toInt(aux2.value);
         res = n1*n2+buffer;
         buffer = res/100;
         res -= buffer*100;
-        aux2.value = (res<9)? "0"+res : ""+res ;
-        buffer += Integer.parseInt(aux2.anterior.value);
-        aux2.anterior.value = (buffer<9) ? "0"+buffer: ""+buffer;
+        aux2.value = String.format("%02d", res); //(res<9)? "0"+res : ""+res ;
+        buffer += toInt(aux2.anterior.value);
+        aux2.anterior.value = String.format("%02d", buffer); //(buffer<9) ? "0"+buffer: ""+buffer;
         aux2 = aux2.anterior;
         calda2 = calda2.anterior;
       }
@@ -90,7 +85,7 @@ public class MM_Math {
       calda1=calda1.anterior;
     }
     if(nulo(resultado.inicio.value)) resultado.deleteStart();
-    resultado.inicio.value = ""+Integer.parseInt(resultado.inicio.value);
+    resultado.inicio.value = ""+toInt(resultado.inicio.value);
     return resultado.str();
     // return resultado.toString(); //
   }
@@ -113,6 +108,10 @@ public class MM_Math {
     return n==0?true:false;
   }
 
+  public static int toInt(String str) {
+    return Integer.parseInt(str);
+  }
+  
   private static ListaDupla fatiar(String str) {
     ListaDupla lista = new ListaDupla();
     int length = str.length(), init = 0;
@@ -123,31 +122,14 @@ public class MM_Math {
     return lista;
   }
   
-  // private static ListaDupla fatiar(String str) { //obs
-  //   ListaDupla lista = new ListaDupla();
-  //   int tam = str.length();
-  //   String num="";
-  //   int inicio = 0;
-  //   if( tam%2==1 ){
-  //     num += str.charAt(inicio++);
-  //     lista.addEnd(num);
-  //     num="";
-  //   }
-  //   for (int i = inicio; i < tam; i++) {
-  //     char c1 = 0, c2 = 0; 
-  //     try{
-  //       c1 = str.charAt(i);
-  //     }catch(Exception e){
-  //       break;
-  //     }
-  //     try{
-  //       c2 = str.charAt(++i);
-  //     }catch(Exception e){
-  //       lista.addEnd(c1);
-  //       break;
-  //     }
-  //     lista.addEnd(c1+""+c2);
-  //   }
-  //   return lista;
-  // }
+  public static String notacaoCientifica(String num) {
+    String str = num.charAt(0)+"." ;
+    int length = num.length();
+    int tam = (length<8)? length : 8;
+    for (int i = 1; i < tam; i++) {
+      str+=num.charAt(i);
+    }
+    str+=" *e^+"+(length-1);
+    return str;
+  }
 }

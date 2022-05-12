@@ -9,6 +9,7 @@ public class Main {
     String str1="", str2="", resultado="", format="", esc="";
     int length=0;
     boolean isInteger = false;
+    System.out.println(">>> Multiplicar numeros enormes <<<");
     do{
       do{
         System.out.print("1º numero: ");

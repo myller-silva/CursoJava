@@ -29,7 +29,7 @@ public class Main {
 
       System.out.printf("\n"+format, str1 );
       System.out.printf(format, str2 );
-      System.out.printf(format, "x____" );
+      System.out.printf(format, ("x"+"_".repeat(length)) );
       System.out.printf(format+"\n", resultado );
       do{
         System.out.print("Continuar? [S/N] ");
@@ -47,8 +47,7 @@ public class Main {
   public static boolean isInteger(String str) {
     int length = str.length();
     for (int i = 0; i < length; i++) {
-      char c = str.charAt(i);
-      if (!Character.isDigit(c)) return false;
+      if (!Character.isDigit( str.charAt(i) )) return false;
     }
     return true;
   }

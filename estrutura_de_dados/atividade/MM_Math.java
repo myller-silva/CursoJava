@@ -112,33 +112,42 @@ public class MM_Math {
     Integer n = Integer.parseInt(num);
     return n==0?true:false;
   }
-  
-  
+
   private static ListaDupla fatiar(String str) {
-    ListaDupla lista = new ListaDupla();
-    int tam = str.length();
-    String num="";
-    int inicio = 0;
-    if( tam%2==1 ){
-      num += str.charAt(inicio++);
-      lista.addEnd(num);
-      num="";
-    }
-    for (int i = inicio; i < tam; i++) {
-      char c1 = 0, c2 = 0; 
-      try{
-        c1 = str.charAt(i);
-      }catch(Exception e){
-        break;
-      }
-      try{
-        c2 = str.charAt(++i);
-      }catch(Exception e){
-        lista.addEnd(c1);
-        break;
-      }
-      lista.addEnd(c1+""+c2);
-    }
+    ListaDupla lista =  new ListaDupla();
+    int length = str.length(), init = 0;
+
+    if(length%2==1) lista.addEnd(str.charAt(init++));
+    for(int i = init; i < length; i+=2) lista.addEnd(str.substring(i, i+2)); 
+
     return lista;
   }
+  
+  // private static ListaDupla fatiar(String str) { //obs
+  //   ListaDupla lista = new ListaDupla();
+  //   int tam = str.length();
+  //   String num="";
+  //   int inicio = 0;
+  //   if( tam%2==1 ){
+  //     num += str.charAt(inicio++);
+  //     lista.addEnd(num);
+  //     num="";
+  //   }
+  //   for (int i = inicio; i < tam; i++) {
+  //     char c1 = 0, c2 = 0; 
+  //     try{
+  //       c1 = str.charAt(i);
+  //     }catch(Exception e){
+  //       break;
+  //     }
+  //     try{
+  //       c2 = str.charAt(++i);
+  //     }catch(Exception e){
+  //       lista.addEnd(c1);
+  //       break;
+  //     }
+  //     lista.addEnd(c1+""+c2);
+  //   }
+  //   return lista;
+  // }
 }

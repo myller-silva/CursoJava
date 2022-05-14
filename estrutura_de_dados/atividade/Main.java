@@ -32,7 +32,7 @@ public class Main {
       System.out.printf(format, str2 );
       System.out.printf(format, ("x"+"_".repeat(length)) );
       System.out.printf(format+"\n", resultado );
-      System.out.printf(format+"\n", length );
+      // System.out.printf(format+"\n", length );
       do{
         System.out.print("Continuar? [S/N] ");
         esc = scan.nextLine();

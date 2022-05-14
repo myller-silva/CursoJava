@@ -58,5 +58,16 @@ public class MM_Math {
     for(int i = inicio; i < length; i+=2) lista.addEnd( str.substring(i, i+2) );
     return lista;
   }
+
+  private static String notacaoCientifica(String num) {
+    String str = num.charAt(0)+"." ;
+    int length = num.length();
+    int tam = (length<8)? length : 8;
+    for (int i = 1; i < tam; i++) {
+      str+=num.charAt(i);
+    }
+    str+=" *e^+"+(length-1);
+    return str;
+  }
   
 }

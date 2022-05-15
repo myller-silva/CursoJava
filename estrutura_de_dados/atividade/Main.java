@@ -52,6 +52,5 @@ public class Main {
       if (!Character.isDigit( str.charAt(i) )) return false;
     }
     return true;
-  }
-  
+  }  
 }

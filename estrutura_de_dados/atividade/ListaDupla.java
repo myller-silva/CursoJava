@@ -70,10 +70,7 @@ public class ListaDupla implements Lista{
     }
 
     Node no = this.inicio;
-    int cont=0;
-
     while(no!=null){
-      System.out.println(cont+++" no: "+no);
       if(no.value.equals(value)){
         Node ant = no.anterior;
         Node prox = no.proximo;

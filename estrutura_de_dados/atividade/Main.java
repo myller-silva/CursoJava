@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
   static Scanner scan = new Scanner(System.in);
   public static void main(String[] args) {
-    utils_my.Console.limparTela();
     String str1="", str2="", resultado="", format="", esc="";
     int length=0;
     boolean isInteger = false;

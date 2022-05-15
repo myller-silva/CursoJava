@@ -1,4 +1,4 @@
-import atividade.ListaDupla;
+import atvs.entregaveis.calculo_big_int.ListaDupla;
 
 public class Operar{
   

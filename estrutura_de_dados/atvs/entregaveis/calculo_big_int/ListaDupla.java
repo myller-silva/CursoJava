@@ -1,4 +1,4 @@
-package atividade;
+package atvs.entregaveis.calculo_big_int;
 
 interface Lista {
   public boolean addEnd(String value);

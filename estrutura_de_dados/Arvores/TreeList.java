@@ -4,23 +4,22 @@ public class TreeList {
   TreeNode root;
   
   boolean insert(TreeNode ptr, int item){
-    return insert(ptr, new TreeNode(item));
-  }
-
-  boolean insert(TreeNode ptr, TreeNode item){
-    if(item==null) return false;
-
-    if(this.root==null){
-      this.root = item;
-      this.root.left = null;
-      this.root.right = null;
+    if(ptr==null){
+      ptr = new TreeNode(item);
+      ptr.left = ptr.right = null;
+      this.root = ptr;
       return true;
     }else{
-      if(item.value < root.value ){
-        
+      if(item < ptr.value ){
+        insert(ptr.left, item);
+        return true;
+      } else if(item > root.value ){
+        insert(ptr.right, item);
+        return true;
+      }else{
+        return false;
       }
     }
-    return false;
   }
 
 

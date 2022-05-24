@@ -1,4 +1,4 @@
-package Arvores;
+package arvores;
 
 /**
  * TreeList

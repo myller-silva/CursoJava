@@ -2,9 +2,42 @@ package arvores;
 
 public class TreeList {
   TreeNode root;
-  TreeList(){
-    root=null;
+
+  public boolean isEmpty() {
+    return root==null;
   }
+  public String children(int... items){
+    int len = items.length;
+    String str = "";
+    for (int i=0; i<len; i++) {
+      str += children(items[i])+"\n";
+    }
+    return str;
+  }
+
+  public String children(int item) {
+    if(isEmpty()) return null;
+    TreeNode aux = this.root;
+    while (aux!= null) {
+      if (aux.value==item) break;
+      if(aux.value>item){
+        aux = aux.left;
+      }else{
+        aux = aux.right;
+      }
+    }
+    if(aux==null) return null;
+    return aux.children();
+  }
+  
+  // public TreeNode remove(int item) {
+  //   if(isEmpty()) return null;
+
+  //   TreeNode aux = this.root;
+
+  //   return aux;
+  // }
+
 
   public TreeNode insert(int... items){
     TreeNode last = null;
@@ -14,11 +47,10 @@ public class TreeList {
     }
     return last;
   }
-
+  
   public TreeNode insert(int item){
     return insert(this.root, item);
   }
-
   private TreeNode insert(TreeNode ptr, int item){
     if(ptr==null){
       ptr = new TreeNode(item);

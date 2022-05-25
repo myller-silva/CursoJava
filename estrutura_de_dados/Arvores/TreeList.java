@@ -41,12 +41,12 @@ public class TreeList {
     }
   }
   
-  String inOrderStr(){
-    String str="";
-    TreeNode aux = root;
+  // String inOrderStr(){
+  //   String str="";
+  //   TreeNode aux = root;
     
-    return str;
-  }
+  //   return str;
+  // }
 
   void inOrder(){
     inOrder(this.root);

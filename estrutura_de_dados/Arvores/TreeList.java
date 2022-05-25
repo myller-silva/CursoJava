@@ -31,8 +31,9 @@ public class TreeList {
         aux = aux.right;
       }
     }
-    if (aux == null)
+    if (aux == null){
       return null;
+    }
     return aux.children();
   }
 
@@ -67,6 +68,8 @@ public class TreeList {
       } else {
         father.right = null;
       }
+    }else{
+      System.out.println("#todo");
     }
     return aux;
   }

@@ -15,6 +15,8 @@ public class Main {
     // System.out.println(tree.children(10, 5, 15, 13, 20, 30, 2, 3, 25, 35));
     System.out.println("removido: "+tree.remove(2));
     tree.inOrder();
+    // System.out.println("removido: "+tree.remove(10));
+    // tree.inOrder();
     System.out.println("removido: "+tree.remove(5));
     tree.inOrder();
     System.out.println("removido: "+tree.remove(3));

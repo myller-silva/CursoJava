@@ -17,7 +17,7 @@ public class TreeList {
   }
 
   public String children(int item) {
-    if (isEmpty()){
+    if (isEmpty()) {
       return null;
     }
     TreeNode aux = this.root;
@@ -62,7 +62,7 @@ public class TreeList {
         father.right = son;
       }
     } else if (aux.childless()) {
-      if (aux.value == father.left.value) {
+      if (aux.equals(father.left)) {
         father.left = null;
       } else {
         father.right = null;
@@ -70,7 +70,7 @@ public class TreeList {
     }
     return aux;
   }
-  
+
   public TreeNode insert(int... items) {
     TreeNode last = null;
     for (int item : items) {

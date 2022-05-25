@@ -12,11 +12,7 @@ public class Main {
     list.insert( 7 );
     list.insert( 15 );
     list.insert( 13 ); 
-    
-    System.out.println("\nroot: "+list.root);
-    System.out.println("root.left: "+list.root.left);
-    System.out.println("root.right: "+list.root.right);
-    
+
     list.inOrder();
     list.preOrder();
     list.posOrder();

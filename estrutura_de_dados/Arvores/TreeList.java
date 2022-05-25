@@ -2,11 +2,12 @@ package arvores;
 
 public class TreeList {
   TreeNode root;
-
+  
   public boolean isEmpty() {
     return root == null;
   }
 
+  
   public String children(int... items) {
     int len = items.length;
     String str = "";
@@ -35,6 +36,12 @@ public class TreeList {
       return null;
     }
     return aux.children();
+  }
+
+  public TreeNode getNode(int value) {
+    TreeNode aux = this.root;
+
+    return null;
   }
 
   public TreeNode remove(int item) {
@@ -119,12 +126,12 @@ public class TreeList {
     }
   }
 
-  void inOrder() {
+  public void inOrder() {
     inOrder(this.root);
     System.out.println();
   }
 
-  void inOrder(TreeNode node) {
+  private void inOrder(TreeNode node) {
     if (node != null) {
       inOrder(node.left);
       System.out.printf("%3d ", node.value);
@@ -132,12 +139,12 @@ public class TreeList {
     }
   }
 
-  void preOrder() {
+  public void preOrder() {
     preOrder(this.root);
     System.out.println();
   }
 
-  void preOrder(TreeNode node) {
+  private void preOrder(TreeNode node) {
     if (node != null) {
       System.out.printf("%3d ", node.value);
       inOrder(node.left);
@@ -145,12 +152,12 @@ public class TreeList {
     }
   }
 
-  void posOrder() {
+  public void posOrder() {
     posOrder(this.root);
     System.out.println();
   }
 
-  void posOrder(TreeNode node) {
+  private void posOrder(TreeNode node) {
     if (node != null) {
       inOrder(node.left);
       inOrder(node.right);

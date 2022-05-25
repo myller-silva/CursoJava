@@ -14,8 +14,8 @@ public class Main {
     // list.posOrder();
 
     System.out.println();
-    System.out.println(list.children(10, 5, 2, 3, 13, 20, 30, 25, 35));
-    System.out.println(list.children(122));
-     
+    System.out.println(list.children(10, 5, 15, 13, 20, 30, 2, 3, 25, 35 )); 
+    System.out.println(list.children(123));
+    
   }
 }

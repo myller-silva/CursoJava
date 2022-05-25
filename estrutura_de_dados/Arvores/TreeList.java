@@ -2,12 +2,11 @@ package arvores;
 
 public class TreeList {
   TreeNode root;
-  
+
   public boolean isEmpty() {
     return root == null;
   }
 
-  
   public String children(int... items) {
     int len = items.length;
     String str = "";
@@ -17,82 +16,40 @@ public class TreeList {
     return str;
   }
 
-  public String children(int item) {
-    if (isEmpty()) {
-      return null;
-    }
-    TreeNode aux = this.root;
-    while (aux != null) {
-      if (aux.value == item) {
-        break;
-      }
-      if (aux.value > item) {
-        aux = aux.left;
-      } else {
-        aux = aux.right;
-      }
-    }
-    if (aux == null){
+  private String children(int item) {
+    TreeNode aux = getNode(item);
+    if (aux == null) {
       return null;
     }
     return aux.children();
   }
 
   public TreeNode getNode(int value) {
-    TreeNode aux = this.root;
-
-    return null;
+    return getNode(this.root, value);
   }
 
-  public TreeNode remove(int item) {
-    if (isEmpty()) {
+  public TreeNode getNode(TreeNode node, int value) {
+    if (node == null) {
       return null;
     }
-    TreeNode aux = this.root;
-    TreeNode father = null;
-
-    while (aux != null) {
-      if (item > aux.value) {
-        father = aux;
-        aux = aux.right;
-      } else if (item < aux.value) {
-        father = aux;
-        aux = aux.left;
-      } else {
-        break;
-      }
+    if (value < node.value) {
+      return getNode(node.left, value);
+    } else if (node.value < value) {
+      return getNode(node.right, value);
+    } else {
+      return node;
     }
-    if (aux.anOnlyChild()) {
-      TreeNode son = (aux.left == null) ? aux.right : aux.left;
-      if (son.value < father.value) {
-        father.left = son;
-      } else {
-        father.right = son;
-      }
-    } else if (aux.childless()) {
-      if (aux.equals(father.left)) {
-        father.left = null;
-      } else {
-        father.right = null;
-      }
-    }else{
-      System.out.println("#todo");
-    }
-    return aux;
   }
 
   public TreeNode insert(int... items) {
     TreeNode last = null;
     for (int item : items) {
       last = insert(this.root, item);
-      if (last == null)
+      if (last == null) {
         return null;
+      }
     }
     return last;
-  }
-
-  public TreeNode insert(int item) {
-    return insert(this.root, item);
   }
 
   private TreeNode insert(TreeNode ptr, int item) {
@@ -127,6 +84,7 @@ public class TreeList {
   }
 
   public void inOrder() {
+    System.out.print("inOrder:");
     inOrder(this.root);
     System.out.println();
   }
@@ -164,5 +122,43 @@ public class TreeList {
       System.out.printf("%3d ", node.value);
     }
   }
+
+
+  // public TreeNode remove(int item) {
+  //   if (isEmpty()) {
+  //     return null;
+  //   }
+  //   TreeNode aux = this.root;
+  //   TreeNode father = null;
+
+  //   while (aux != null) {
+  //     if (item > aux.value) {
+  //       father = aux;
+  //       aux = aux.right;
+  //     } else if (item < aux.value) {
+  //       father = aux;
+  //       aux = aux.left;
+  //     } else {
+  //       break;
+  //     }
+  //   }
+  //   if (aux.anOnlyChild()) {
+  //     TreeNode son = (aux.left == null) ? aux.right : aux.left;
+  //     if (son.value < father.value) {
+  //       father.left = son;
+  //     } else {
+  //       father.right = son;
+  //     }
+  //   } else if (aux.childless()) {
+  //     if (aux.equals(father.left)) {
+  //       father.left = null;
+  //     } else {
+  //       father.right = null;
+  //     }
+  //   } else {
+  //     System.out.println("#todo");
+  //   }
+  //   return aux;
+  // }
 
 }

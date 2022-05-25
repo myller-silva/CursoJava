@@ -3,10 +3,9 @@ package arvores;
 public class TreeNode {
   TreeNode left;
   TreeNode right;
+  TreeNode father;
   int value;
-
-  // TreeNode() {}
-
+  
   TreeNode(int value) {
     this.value = value;
   }
@@ -19,21 +18,16 @@ public class TreeNode {
   }
 
   public boolean childless() {
-    return (this.left == null && this.left == null);
+    return (this.left == null && this.right == null);
   }
 
   public boolean twoChildren() {
-    return (this.left != null && this.left != null);
+    return (this.left != null && this.right != null);
   }
   public boolean anOnlyChild() {
     return !this.childless() && !this.twoChildren() ;
   }
-
-  // public boolean anOnlyChild() {
-  //   return (this.left == null || this.right == null) &&
-  //       !((this.left == null && this.right == null));
-  // }
-
+  
   @Override
   public String toString() {
     return "" + this.value;

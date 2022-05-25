@@ -22,6 +22,11 @@ public class TreeNode {
     return (this.left==null && this.left==null);
   }
 
+  public boolean anOnlyChild() {
+    return (this.left == null || this.right == null) &&
+        !((this.left == null && this.right == null));
+  }
+
   @Override
   public String toString() {
     return ""+this.value;

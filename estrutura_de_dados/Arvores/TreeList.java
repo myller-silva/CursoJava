@@ -17,8 +17,9 @@ public class TreeList {
   }
 
   public String children(int item) {
-    if (isEmpty())
+    if (isEmpty()){
       return null;
+    }
     TreeNode aux = this.root;
     while (aux != null) {
       if (aux.value == item) {
@@ -53,8 +54,7 @@ public class TreeList {
         break;
       }
     }
-    if (anOnlyChild(aux)) {
-      // System.out.println(aux.children());
+    if (aux.anOnlyChild()) {
       TreeNode son = (aux.left == null) ? aux.right : aux.left;
       if (son.value < father.value) {
         father.left = son;
@@ -70,16 +70,7 @@ public class TreeList {
     }
     return aux;
   }
-
-  // private boolean childless(TreeNode node) {
-  // return (node.left==null && node.left==null);
-  // }
-
-  private boolean anOnlyChild(TreeNode node) {
-    return (node.left == null || node.right == null) &&
-        !((node.left == null && node.right == null));
-  }
-
+  
   public TreeNode insert(int... items) {
     TreeNode last = null;
     for (int item : items) {

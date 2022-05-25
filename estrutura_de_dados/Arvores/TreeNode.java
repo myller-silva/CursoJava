@@ -18,6 +18,9 @@ public class TreeNode {
     
     return left+" <- "+thisNode+" -> "+right;
   }
+  public boolean childless() {
+    return (this.left==null && this.left==null);
+  }
 
   @Override
   public String toString() {

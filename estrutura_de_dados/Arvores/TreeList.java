@@ -6,11 +6,20 @@ public class TreeList {
     root=null;
   }
 
+  public TreeNode insert(int... items){
+    TreeNode last = null;
+    for (int item : items) {
+      last = insert(this.root, item);
+      if(last==null) return null;
+    }
+    return last;
+  }
+
   public TreeNode insert(int item){
     return insert(this.root, item);
   }
 
-  TreeNode insert(TreeNode ptr, int item){
+  private TreeNode insert(TreeNode ptr, int item){
     if(ptr==null){
       ptr = new TreeNode(item);
       ptr.left = null;
@@ -41,13 +50,6 @@ public class TreeList {
     }
   }
   
-  // String inOrderStr(){
-  //   String str="";
-  //   TreeNode aux = root;
-    
-  //   return str;
-  // }
-
   void inOrder(){
     inOrder(this.root);
     System.out.println();

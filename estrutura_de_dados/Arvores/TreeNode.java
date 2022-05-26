@@ -3,7 +3,7 @@ package arvores;
 public class TreeNode {
   TreeNode left;
   TreeNode right;
-  TreeNode father;
+  // TreeNode father;
   int value;
   
   TreeNode(int value) {

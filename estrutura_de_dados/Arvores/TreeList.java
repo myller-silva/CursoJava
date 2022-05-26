@@ -172,10 +172,10 @@ public class TreeList {
   private String strNodes(TreeNode node) {
     String str="";
     if(node!=null){
-      str+=node+"\n";
       if(node.left!=null){
         str+=strNodes(node.left);
       }
+      str+=node+"\n";
       if(node.right!=null){
         str+=strNodes(node.right);
       }

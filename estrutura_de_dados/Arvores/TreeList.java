@@ -103,43 +103,67 @@ public class TreeList {
     if (isEmpty()) {
       return null;
     }
-    TreeNode aux = this.root;
     TreeNode father = null;
+    TreeNode del = this.root;
 
-    while (aux != null) {
-      if (item > aux.value) {
-        father = aux;
-        aux = aux.right;
-      } else if (item < aux.value) {
-        father = aux;
-        aux = aux.left;
+    while (del != null) {
+      if (item > del.value) {
+        father = del;
+        del = del.right;
+      } else if (item < del.value) {
+        father = del;
+        del = del.left;
       } else {
         break;
       }
     }
-    switch (aux.numberOfChildren()) {
+
+    if (del == null) {
+      return null;
+    }
+
+    switch (del.numberOfChildren()) {
       case 0: // ok
-        if (aux.equals(father.left)) {
+        if (del.equals(father.left)) {
           father.left = null;
         } else {
           father.right = null;
         }
         break;
+
       case 1: // ok
-        TreeNode son = (aux.left == null) ? aux.right : aux.left;
+        TreeNode son = (del.left == null) ? del.right : del.left;
         if (son.value < father.value) {
           father.left = son;
         } else {
           father.right = son;
         }
         break;
-      case 2: // todo
 
+      case 2: // todo
+        if(del.equals(father.right)){
+          TreeNode aux = del;
+          father.right = del.left;
+          TreeNode aux2 = del.left;
+          while (aux2.right!=null) {
+            aux2 = aux2.right;
+          }
+          aux2.right = aux.right;
+        }else{
+          TreeNode aux = del;
+          father.left = del.left;
+          TreeNode aux2 = del.left;
+          while (aux2.right!=null) {
+            aux2 = aux2.right;
+          }
+          aux2.right = aux.right;
+        }
         break;
       default:
         break;
     }
-    return aux;
+
+    return del;
   }
 
 }

@@ -2,29 +2,28 @@ package arvores;
 
 import java.util.Scanner;
 
-
 // cls && javac arvores/Main.java && java arvores/Main
 public class Main {
   public static void main(String[] args) {
     TreeList tree = new TreeList();
 
-    int[] values = { 50, 40, 60, 30, 70, 20, 80, 15, 25, 35, 45, 55, 65, 75, 85 };
+    int[] values = { 50, 40, 30, 45, 55 };
 
     for (int v : values) {
       tree.insert(v);
     }
-    
-    System.out.println("inOrder: "+tree.inOrder()+"\n");
+
     // printNodes(tree);
     System.out.println(tree);
-    
+    System.out.println("inOrder: " + tree.inOrder() + "\n");
+
   }
-  
+
   public static void printNodes(TreeList tree) {
     Scanner scan = new Scanner(System.in);
     int n = 0;
-    String str="";
-    do{
+    String str = "";
+    do {
       System.out.print("Digite um numero: ");
       n = scan.nextInt();
       scan.nextLine();
@@ -33,14 +32,10 @@ public class Main {
       do {
         System.out.print("Continuar? [S/N] ");
         str = scan.nextLine();
-      } while (
-        !str.equals("S") && !str.equals("s") &&
-        !str.equals("N") && !str.equals("n") 
-      );
-    }while(
-      !str.equals("N") &&
-      !str.equals("n") 
-    );
+      } while (!str.equals("S") && !str.equals("s") &&
+          !str.equals("N") && !str.equals("n"));
+    } while (!str.equals("N") &&
+        !str.equals("n"));
     scan.close();
   }
 }

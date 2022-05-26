@@ -13,7 +13,7 @@ public class TreeNode {
   public String children() {
     String left = String.format("%4s", this.left);
     String right = String.format("%4s", this.right);
-    String thisNode = String.format("%2s", this);
+    String thisNode = String.format("%2d", this.value);
     return left + " <- " + thisNode + " -> " + right;
   }
 

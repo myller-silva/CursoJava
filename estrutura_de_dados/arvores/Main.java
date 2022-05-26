@@ -1,6 +1,9 @@
 package arvores;
 
-// cls; javac arvores/Main.java ; java arvores/Main
+import java.util.Scanner;
+
+// cls ; javac arvores/Main.java ; java arvores/Main
+// cls && javac arvores/Main.java && java arvores/Main
 public class Main {
   public static void main(String[] args) {
     TreeList tree = new TreeList();
@@ -11,16 +14,32 @@ public class Main {
       tree.insert(v);
     }
     
-    System.out.println();
     tree.inOrder();
-    System.out.println("removido: "+tree.remove(1));
-    tree.inOrder();
+    printNodes(tree);
+    
+  }
 
-    for (int value : values) {
-      System.out.println(tree.getNode(value));
-    }
-    
-    
-    
+  public static void printNodes(TreeList tree) {
+    Scanner scan = new Scanner(System.in);
+    int n = 0;
+    String str="";
+    do{
+      System.out.print("Digite um numero: ");
+      n = scan.nextInt();
+      scan.nextLine();
+      System.out.println(tree.getNode(n));
+      tree.inOrder();
+      do {
+        System.out.print("Continuar? [S/N] ");
+        str = scan.nextLine();
+      } while (
+        !str.equals("S") && !str.equals("s") &&
+        !str.equals("N") && !str.equals("n") 
+      );
+    }while(
+      !str.equals("N") &&
+      !str.equals("n") 
+    );
+    scan.close();
   }
 }

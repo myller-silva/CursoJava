@@ -107,6 +107,10 @@ public class TreeList {
     if (isEmpty()) {
       return null;
     }
+    if(item==this.root.value){
+      this.deleteRaiz();
+    }
+
     TreeNode father = null;
     TreeNode del = this.root;
 
@@ -163,6 +167,35 @@ public class TreeList {
 
     return del;
   }
+
+  private TreeNode deleteRaiz() { //obs
+    if(isEmpty()){
+      return null;
+    }
+    TreeNode temp = this.root;
+    switch (this.root.numberOfChildren()) {
+      case 0:
+        this.root = null;
+        break;
+      case 1:
+        this.root = (this.root.left!=null) ? this.root.left : this.root.right;
+        break;
+      case 2:
+        TreeNode aux = this.root.left;
+        TreeNode aux2 = aux;
+        while (aux2.right!=null) {
+          aux2 = aux2.right;
+        }
+        aux2.right = this.root.right;
+        this.root = aux;
+        break;
+      default:
+        break;
+    }
+    return temp;
+  }
+  
+  
 
   @Override
   public String toString() {

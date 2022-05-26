@@ -140,24 +140,18 @@ public class TreeList {
         }
         break;
 
-      case 2: // todo
+      case 2: // ok
+        TreeNode aux = del;
         if(del.equals(father.right)){
-          TreeNode aux = del;
           father.right = del.left;
-          TreeNode aux2 = del.left;
-          while (aux2.right!=null) {
-            aux2 = aux2.right;
-          }
-          aux2.right = aux.right;
         }else{
-          TreeNode aux = del;
           father.left = del.left;
-          TreeNode aux2 = del.left;
-          while (aux2.right!=null) {
-            aux2 = aux2.right;
-          }
-          aux2.right = aux.right;
         }
+        TreeNode aux2 = del.left;
+        while (aux2.right!=null) {
+          aux2 = aux2.right;
+        }
+        aux2.right = aux.right;
         break;
       default:
         break;

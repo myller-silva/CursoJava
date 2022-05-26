@@ -65,7 +65,7 @@ public class TreeList {
     System.out.println();
   }
 
-  private void inOrder(TreeNode node) {
+  public void inOrder(TreeNode node) {
     if (node != null) {
       inOrder(node.left);
       System.out.printf("%3d ", node.value);
@@ -78,7 +78,7 @@ public class TreeList {
     System.out.println();
   }
 
-  private void preOrder(TreeNode node) {
+  public void preOrder(TreeNode node) {
     if (node != null) {
       System.out.printf("%3d ", node.value);
       inOrder(node.left);
@@ -91,7 +91,7 @@ public class TreeList {
     System.out.println();
   }
 
-  private void posOrder(TreeNode node) {
+  public void posOrder(TreeNode node) {
     if (node != null) {
       inOrder(node.left);
       inOrder(node.right);
@@ -133,8 +133,8 @@ public class TreeList {
           father.right = son;
         }
         break;
-      case 2:
-        System.out.println("#todo");
+      case 2: // todo
+
         break;
       default:
         break;

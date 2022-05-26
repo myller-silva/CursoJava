@@ -11,17 +11,26 @@ public class Main {
       tree.insert(v);
     }
     
-    System.out.println("getNodes: ");
-    
-    for (int v : values) {
-      System.out.println(tree.getNode(v));
-    }
+    // System.out.println("getNodes: ");
+    // for (int v : values) {
+    //   TreeNode aux = tree.getNode(v);
+    //   if(aux!=null){
+    //     System.out.println(aux);
+    //   }
+    // }
 
     System.out.println();
     tree.inOrder();
-
-    System.out.println("removido: "+tree.remove(1));
+    System.out.println("removido: "+tree.remove(3));
     tree.inOrder();
+
+    System.out.println("getNodes: ");
+    for (int v : values) {
+      TreeNode aux = tree.getNode(v);
+      if(aux!=null){
+        System.out.println(aux);
+      }
+    }
     
   }
 }

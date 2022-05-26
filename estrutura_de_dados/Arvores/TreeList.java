@@ -59,18 +59,22 @@ public class TreeList {
     }
   }
 
-  public void inOrder() {
-    System.out.print("inOrder:");
-    inOrder(this.root);
-    System.out.println();
+  public String inOrder() {
+    return inOrder(this.root);
   }
 
-  public void inOrder(TreeNode node) {
+  public String inOrder(TreeNode node) {
+    String str="";
     if (node != null) {
-      inOrder(node.left);
-      System.out.printf("%3d ", node.value);
-      inOrder(node.right);
+      if(node.left!=null){
+        str+=inOrder(node.left);
+      }
+      str+=node.value+" ";
+      if(node.right!=null){
+        str+=inOrder(node.right);
+      }
     }
+    return str;
   }
 
   public void preOrder() {

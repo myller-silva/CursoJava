@@ -14,7 +14,7 @@ public class Main {
       tree.insert(v);
     }
     
-    tree.inOrder();
+    System.out.println("inOrder: "+tree.inOrder()+"\n");
     // printNodes(tree);
     System.out.println(tree);
     

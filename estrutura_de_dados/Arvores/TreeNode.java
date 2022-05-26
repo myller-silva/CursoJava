@@ -9,27 +9,30 @@ public class TreeNode {
   TreeNode(int value) {
     this.value = value;
   }
-
-  public String children() {
-    String left = String.format("%4s", this.left);
-    String right = String.format("%4s", this.right);
-    String thisNode = String.format("%2d", this.value);
-    return left + " <- " + thisNode + " -> " + right;
-  }
-
-  public boolean childless() {
+  
+  private boolean childless() {
     return (this.left == null && this.right == null);
   }
 
-  public boolean twoChildren() {
+  private boolean twoChildren() {
     return (this.left != null && this.right != null);
   }
-  public boolean anOnlyChild() {
-    return !this.childless() && !this.twoChildren() ;
+  
+  public int numberOfChildren() {
+    if (this.childless()) {
+      return 0;
+    }
+    if(twoChildren()){
+      return 2;
+    }
+    return 1;
   }
   
   @Override
   public String toString() {
-    return "" + this.value;
+    String left = String.format("%4s", (this.left == null) ? null: this.left.value+"");
+    String right = String.format("%4s", (this.right == null) ? null: this.right.value+"");
+    String value = String.format("%2d", this.value);
+    return left + " <- " + value + " -> " + right;
   }
 }

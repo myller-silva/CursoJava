@@ -2,7 +2,8 @@
 public class Testes {
   public static void main(String[] args) {
     utils_my.Console.limparTela();
-    System.out.printf("%5s\n", "mac");
+    String str = null;
+    System.out.printf("%2d\n",str);
   }
 
 }

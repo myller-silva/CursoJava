@@ -8,7 +8,7 @@ public class Main {
   public static void main(String[] args) {
     TreeList tree = new TreeList();
 
-    int[] values = { 10, 5, 15, 13, 20, 30, 1, 3, 25, 35, 7, 18, 16, 2, 4, 0 };
+    int[] values = { 50, 40, 60, 30, 70, 20, 80, 15, 25, 35, 45, 55, 65, 75, 85 };
 
     for (int v : values) {
       tree.insert(v);

@@ -160,4 +160,22 @@ public class TreeList {
     return del;
   }
 
+  @Override
+  public String toString() {
+    return this.strNodes(this.root);
+  }
+  
+  private String strNodes(TreeNode node) {
+    String str="";
+    if(node!=null){
+      str+=node+"\n";
+      if(node.left!=null){
+        str+=strNodes(node.left);
+      }
+      if(node.right!=null){
+        str+=strNodes(node.right);
+      }
+    }
+    return str;
+  }
 }

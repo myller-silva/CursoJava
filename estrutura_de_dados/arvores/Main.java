@@ -2,7 +2,7 @@ package arvores;
 
 import java.util.Scanner;
 
-// cls ; javac arvores/Main.java ; java arvores/Main
+
 // cls && javac arvores/Main.java && java arvores/Main
 public class Main {
   public static void main(String[] args) {
@@ -15,10 +15,11 @@ public class Main {
     }
     
     tree.inOrder();
-    printNodes(tree);
+    // printNodes(tree);
+    System.out.println(tree);
     
   }
-
+  
   public static void printNodes(TreeList tree) {
     Scanner scan = new Scanner(System.in);
     int n = 0;

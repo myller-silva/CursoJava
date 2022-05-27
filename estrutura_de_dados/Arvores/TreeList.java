@@ -11,7 +11,7 @@ public class TreeList {
     return getNode(this.root, value);
   }
 
-  public TreeNode getNode(TreeNode node, int value) {
+  private TreeNode getNode(TreeNode node, int value) {
     if (node == null) {
       return null;
     }

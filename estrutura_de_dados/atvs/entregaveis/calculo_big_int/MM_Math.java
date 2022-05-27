@@ -79,16 +79,16 @@ public class MM_Math {
 
     while (calda1!=null) {
       calda2 = lista2.fim;
-      n1 = toInt(calda1.value);
+      n1 = Integer.parseInt(calda1.value);
       aux2 = aux;
       while (calda2!=null) {
-        n2 = toInt(calda2.value);
+        n2 = Integer.parseInt(calda2.value);
         res = n1*n2;
         if(aux2!=null){
-          res += toInt(aux2.value);
+          res += Integer.parseInt(aux2.value);
           buffer = res/100 ;
           res -= buffer*100;
-          aux2.value = ""+res;
+          aux2.value = (res<10) ? "0"+res : ""+res;
           if(aux2.anterior==null){
             if(calda2.anterior!=null){
               resultado.addStart(buffer);
@@ -96,32 +96,26 @@ public class MM_Math {
               if (buffer!=0) resultado.addStart(buffer);
             }
           }else{
-            aux2.anterior.value = ""+(buffer+toInt(aux2.anterior.value));
+            aux2.anterior.value = ""+(buffer+Integer.parseInt(aux2.anterior.value));
           }
         }else if( resultado.inicio!=null ){
-          res += toInt(resultado.inicio.value);
+          res += Integer.parseInt(resultado.inicio.value);
           buffer = res/100;
           res -= buffer*100;
-          resultado.inicio.value = ""+res;
-          if(calda2.anterior!=null) {
-            resultado.addStart(buffer);
-          }else if(buffer!=0){
-            resultado.addStart(buffer);
-          }
+          resultado.inicio.value = (res<10) ? "0"+res : ""+res;
+          resultado.addStart(buffer);
         }else{
           buffer = res/100;
           res -= buffer*100;
-          resultado.addStart(res);
-          resultado.addStart(buffer);
+          resultado.addStart((res<10) ? "0"+res : ""+res);
+          resultado.addStart((buffer<10) ? "0"+buffer : ""+buffer);
         }
         if(aux2!=null) aux2 = aux2.anterior;
         calda2 = calda2.anterior;
       }
       aux = ( aux==null  ) ? resultado.fim.anterior : aux.anterior;
-      // System.out.println();
       calda1=calda1.anterior;
     }
-    System.out.println();
     return resultado.toString();
     // return resultado.str();
   }

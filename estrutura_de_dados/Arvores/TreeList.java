@@ -108,7 +108,7 @@ public class TreeList {
       return null;
     }
     if(item==this.root.value){
-      this.deleteRaiz();
+      this.removeRoot();
     }
 
     TreeNode father = null;
@@ -168,7 +168,7 @@ public class TreeList {
     return del;
   }
 
-  private TreeNode deleteRaiz() { 
+  private TreeNode removeRoot() { 
     if(isEmpty()){
       return null;
     }

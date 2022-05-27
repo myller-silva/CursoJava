@@ -168,7 +168,7 @@ public class TreeList {
     return del;
   }
 
-  private TreeNode deleteRaiz() { //obs
+  private TreeNode deleteRaiz() { 
     if(isEmpty()){
       return null;
     }

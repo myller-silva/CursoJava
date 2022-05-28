@@ -8,8 +8,13 @@ public class Main {
   static Scanner scan = new Scanner(System.in);
   public static void main(String[] args) {
     TreeList tree = new TreeList();
-    
+    int [] values = {12, 32, 1, 2, 31, 41, 8, 121};
     int n = 0;
+
+    for (int value : values) {
+      tree.insert(value);
+    }
+
     System.out.println(">>> Arvore Binaria <<<");
     do{
       n = menu();
@@ -23,7 +28,7 @@ public class Main {
           }
           break;
         case 3:
-          System.out.println("inOrder: "+tree.inOrder()+"\n");
+          System.out.println(listaElementos(tree));
           break;
         case 4:
           System.out.println(tree);
@@ -32,6 +37,14 @@ public class Main {
           break;
       }
     }while(n!=0);
+  }
+
+  public static String listaElementos(TreeList tree) {
+    String str = "";
+    str += "preOrder: "+tree.preOrder()+"\n";
+    str += "inOrder: "+tree.inOrder()+"\n";
+    str += "posOrder: "+tree.posOrder()+"\n";
+    return str;
   }
 
   public static int menu() {

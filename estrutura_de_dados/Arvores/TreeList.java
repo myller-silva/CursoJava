@@ -77,30 +77,40 @@ public class TreeList {
     return str;
   }
 
-  public void preOrder() {
-    preOrder(this.root);
-    System.out.println();
+  public String preOrder() {
+    return preOrder(this.root);
   }
 
-  public void preOrder(TreeNode node) {
+  public String preOrder(TreeNode node) {
+    String str = "";
     if (node != null) {
-      System.out.printf("%3d ", node.value);
-      inOrder(node.left);
-      inOrder(node.right);
+      str += node.value+" ";
+      if(node.left != null){
+        str += inOrder(node.left);
+      }
+      if(node.right != null){
+        str += inOrder(node.right);
+      }
     }
+    return str;
   }
 
-  public void posOrder() {
-    posOrder(this.root);
-    System.out.println();
+  public String posOrder() {
+    return posOrder(this.root);
   }
 
-  public void posOrder(TreeNode node) {
+  public String posOrder(TreeNode node) {
+    String str = "";
     if (node != null) {
-      inOrder(node.left);
-      inOrder(node.right);
-      System.out.printf("%3d ", node.value);
+      if(node.left != null){
+        str += inOrder(node.left);
+      }
+      if(node.right != null){
+        str += inOrder(node.right);
+      }
+      str+= node.value+" ";
     }
+    return str;
   }
 
   public TreeNode remove(int item) {

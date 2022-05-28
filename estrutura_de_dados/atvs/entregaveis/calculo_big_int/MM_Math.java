@@ -98,7 +98,7 @@ public class MM_Math {
           }else{
             aux2.anterior.value = ""+(buffer+Integer.parseInt(aux2.anterior.value));
           }
-        }else if( resultado.inicio!=null ){
+        }else if( resultado.inicio!=null ){ //
           res += Integer.parseInt(resultado.inicio.value);
           buffer = res/100;
           res -= buffer*100;

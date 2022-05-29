@@ -156,30 +156,33 @@ public class TreeList {
     return del;
   }
 
-  private TreeNode getFather(int value) { //ok
-    TreeNode aux = this.root;
-    while (aux != null) {
-      if (aux.value < value) {
-        if(aux.right==null){ //funcao??
+  public TreeNode getFather(int value){
+    return getFather(this.root, value);
+  }
+
+  private TreeNode getFather(TreeNode node, int value) { //ok
+    while (node != null) {
+      if (node.value < value) {
+        if(node.right==null){ //funcao??
           return null;
-        }else if (aux.right.value == value){
-          return aux;
+        }else if (node.right.value == value){
+          return node;
         }else{
-          aux = aux.right;
+          node = node.right;
         }
-      } else if (aux.value > value) { 
-        if(aux.left==null){ //funcao??
+      } else if (node.value > value) { 
+        if(node.left==null){ //funcao??
           return null;
-        }else if (aux.left.value == value){
-          return aux;
+        }else if (node.left.value == value){
+          return node;
         }else{
-          aux = aux.left;
+          node = node.left;
         }
       } else {
         return null;
       }
     }
-    return aux;
+    return node;
   }
 
   private TreeNode removeRoot() {

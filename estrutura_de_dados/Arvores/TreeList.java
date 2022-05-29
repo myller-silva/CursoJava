@@ -121,39 +121,40 @@ public class TreeList {
       return this.removeRoot();
     }
 
-    TreeNode father = null;
-    TreeNode del = this.root;
-
-    while (del != null) { // getNode()
-      if (item > del.value) {
-        father = del;
-        del = del.right;
-      } else if (item < del.value) {
-        father = del;
-        del = del.left;
-      } else {
-        break;
-      }
-    }
-
-    if (del == null) {
-      return null;
-    }
-
+    TreeNode father = getFather(item);
+    TreeNode del = getSon(father, item);
+    
     switch (del.numberOfChildren()) {
-      case 0: // ok
+      case 0:
         deleteChildlessNode(father, del);
         break;
-      case 1: // ok
+      case 1:
         deleteNodeWithOneChildren(father, del);
         break;
-      case 2: // ok
+      case 2:
         deleteNodeWithTwoChildren(father, del);
         break;
       default:
         break;
     }
     return del;
+  }
+
+  public TreeNode getSon(TreeNode father, int item) {
+    if(father==null){
+      return null;
+    }
+    if(father.left!=null){
+      if(father.left.value==item){
+        return father.left;
+      }
+    }
+    if(father.right!=null){
+      if(father.right.value==item){
+        return father.right;
+      }
+    }
+    return null;
   }
 
   public TreeNode getFather(int value){

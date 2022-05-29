@@ -41,12 +41,14 @@ public class Main {
 
   private static void menuCases(TreeList tree, int n) {
     switch (n) {
+      case 0:
+        break;
       case 1:
         tree.insert( readIntegerValue() );
         break ;
       case 2:
         if( tree.remove( readIntegerValue() ) == null){
-          System.out.println("Valor nao encontrado na arvore");
+          System.out.println("Valor nao encontrado na arvore\n");
         }
         break ;
       case 3:
@@ -56,6 +58,7 @@ public class Main {
         System.out.println(tree);
         break ;
       default:
+        System.out.println("Opcao invalida");
         break ;
     }
   }

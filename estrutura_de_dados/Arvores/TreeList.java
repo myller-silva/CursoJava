@@ -179,9 +179,6 @@ public class TreeList {
   }
 
   private TreeNode removeRoot() { 
-    if(isEmpty()){
-      return null;
-    }
     TreeNode temp = this.root;
     switch (this.root.numberOfChildren()) {
       case 0:

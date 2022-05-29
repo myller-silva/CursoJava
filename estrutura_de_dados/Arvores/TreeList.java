@@ -120,11 +120,11 @@ public class TreeList {
     if(item==this.root.value){
       return this.removeRoot();
     }
-
+    
     TreeNode father = null;
     TreeNode del = this.root;
 
-    while (del != null) {
+    while (del != null) { //getNode()
       if (item > del.value) {
         father = del;
         del = del.right;

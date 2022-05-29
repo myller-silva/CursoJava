@@ -6,7 +6,7 @@ public class Teste {
   public static void main(String[] args) {
     TreeList tree = new TreeList();
 
-    int[] values = {10, 30, 20, 15, 21, 13 };
+    int[] values = {10,9, 30, 20, 15, 21, 13 };
 
     for (int value : values) {
       tree.insert(value);
@@ -20,7 +20,12 @@ public class Teste {
       System.out.print("value: ");
       n = scan.nextInt();
       scan.nextLine();
-      System.out.println("father de "+n+" : "+tree.getFather(n));
+      TreeNode father = tree.getFather(n);
+      TreeNode son = tree.getSon(father, n);
+      System.out.println("father of "+n+" : "+ father.value);
+      System.out.println("Son of "+father.value+" : "+son.value);
+      System.out.println();
+      
     }while(true);
   }
 }

@@ -9,45 +9,20 @@ public class Main {
   public static void main(String[] args) {
     TreeList tree = new TreeList();
     int [] values = {12, 32, 1, 2, 31, 41, 8, 121};
-    int n = 0;
 
     for (int value : values) {
       tree.insert(value);
     }
 
     System.out.println(">>> Arvore Binaria <<<");
+    int n = 0;
     do{
       n = menu();
-      switch (n) {
-        case 1:
-          tree.insert( readIntegerValue() );
-          break;
-        case 2:
-          if( tree.remove( readIntegerValue() ) == null){
-            System.out.println("Valor nao encontrado na arvore");
-          }
-          break;
-        case 3:
-          System.out.println(listaElementos(tree));
-          break;
-        case 4:
-          System.out.println(tree);
-          break;
-        default:
-          break;
-      }
+      menuCases(tree, n);
     }while(n!=0);
   }
 
-  public static String listaElementos(TreeList tree) {
-    String str = "";
-    str += "preOrder: "+tree.preOrder()+"\n";
-    str += "inOrder: "+tree.inOrder()+"\n";
-    str += "posOrder: "+tree.posOrder()+"\n";
-    return str;
-  }
-
-  public static int menu() {
+  private static int menu() {
     String str = "";
     System.out.println("[0] Encerrar");
     System.out.println("[1] Inserir");
@@ -64,7 +39,28 @@ public class Main {
     }
   }
 
-  public static int readIntegerValue() {
+  private static void menuCases(TreeList tree, int n) {
+    switch (n) {
+      case 1:
+        tree.insert( readIntegerValue() );
+        break ;
+      case 2:
+        if( tree.remove( readIntegerValue() ) == null){
+          System.out.println("Valor nao encontrado na arvore");
+        }
+        break ;
+      case 3:
+        System.out.println(listaElementos(tree));
+        break ;
+      case 4:
+        System.out.println(tree);
+        break ;
+      default:
+        break ;
+    }
+  }
+
+  private static int readIntegerValue() {
     String str="";
     do{
       System.out.print("Digite um numero: ");
@@ -77,4 +73,14 @@ public class Main {
       }
     }while(true);
   }
+  
+  private static String listaElementos(TreeList tree) {
+    String str = "";
+    str += "preOrder: "+tree.preOrder()+"\n";
+    str += "inOrder: "+tree.inOrder()+"\n";
+    str += "posOrder: "+tree.posOrder()+"\n";
+    return str;
+  }
+
 }
+

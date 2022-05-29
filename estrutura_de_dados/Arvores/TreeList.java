@@ -64,14 +64,14 @@ public class TreeList {
   }
 
   public String inOrder(TreeNode node) {
-    String str="";
+    String str = "";
     if (node != null) {
-      if(node.left!=null){
-        str+=inOrder(node.left);
+      if (node.left != null) {
+        str += inOrder(node.left);
       }
-      str+=node.value+" ";
-      if(node.right!=null){
-        str+=inOrder(node.right);
+      str += node.value + " ";
+      if (node.right != null) {
+        str += inOrder(node.right);
       }
     }
     return str;
@@ -84,11 +84,11 @@ public class TreeList {
   public String preOrder(TreeNode node) {
     String str = "";
     if (node != null) {
-      str += node.value+" ";
-      if(node.left != null){
+      str += node.value + " ";
+      if (node.left != null) {
         str += inOrder(node.left);
       }
-      if(node.right != null){
+      if (node.right != null) {
         str += inOrder(node.right);
       }
     }
@@ -102,13 +102,13 @@ public class TreeList {
   public String posOrder(TreeNode node) {
     String str = "";
     if (node != null) {
-      if(node.left != null){
+      if (node.left != null) {
         str += inOrder(node.left);
       }
-      if(node.right != null){
+      if (node.right != null) {
         str += inOrder(node.right);
       }
-      str+= node.value+" ";
+      str += node.value + " ";
     }
     return str;
   }
@@ -117,14 +117,14 @@ public class TreeList {
     if (isEmpty()) {
       return null;
     }
-    if(item==this.root.value){
+    if (item == this.root.value) {
       return this.removeRoot();
     }
-    
+
     TreeNode father = null;
     TreeNode del = this.root;
 
-    while (del != null) { //getNode()
+    while (del != null) { // getNode()
       if (item > del.value) {
         father = del;
         del = del.right;
@@ -142,34 +142,13 @@ public class TreeList {
 
     switch (del.numberOfChildren()) {
       case 0: // ok
-        if (del.equals(father.left)) {
-          father.left = null;
-        } else {
-          father.right = null;
-        }
+        deleteChildlessNode(father, del);
         break;
-
       case 1: // ok
-        TreeNode son = (del.left == null) ? del.right : del.left;
-        if (son.value < father.value) {
-          father.left = son;
-        } else {
-          father.right = son;
-        }
+        deleteNodeWithOneChildren(father, del);
         break;
-
       case 2: // ok
-        TreeNode aux = del;
-        if(del.equals(father.right)){
-          father.right = del.left;
-        }else{
-          father.left = del.left;
-        }
-        TreeNode aux2 = del.left;
-        while (aux2.right!=null) {
-          aux2 = aux2.right;
-        }
-        aux2.right = aux.right;
+        deleteNodeWithTwoChildren(father, del);
         break;
       default:
         break;
@@ -178,19 +157,19 @@ public class TreeList {
     return del;
   }
 
-  private TreeNode removeRoot() { 
+  private TreeNode removeRoot() {
     TreeNode temp = this.root;
     switch (this.root.numberOfChildren()) {
       case 0:
         this.root = null;
         break;
       case 1:
-        this.root = (this.root.left!=null) ? this.root.left : this.root.right;
+        this.root = (this.root.left != null) ? this.root.left : this.root.right;
         break;
       case 2:
         TreeNode aux = this.root.left;
         TreeNode aux2 = aux;
-        while (aux2.right!=null) {
+        while (aux2.right != null) {
           aux2 = aux2.right;
         }
         aux2.right = this.root.right;
@@ -202,20 +181,51 @@ public class TreeList {
     return temp;
   }
 
+  private void deleteChildlessNode(TreeNode father, TreeNode del) {
+    if (del.equals(father.left)) {
+      father.left = null;
+    } else {
+      father.right = null;
+    }
+  }
+
+  private void deleteNodeWithOneChildren(TreeNode father, TreeNode del) {
+    TreeNode son = (del.left == null) ? del.right : del.left;
+    if (son.value < father.value) {
+      father.left = son;
+    } else {
+      father.right = son;
+    }
+  }
+
+  private void deleteNodeWithTwoChildren(TreeNode father, TreeNode del) {
+    TreeNode aux = del;
+    if (del.equals(father.right)) {
+      father.right = del.left;
+    } else {
+      father.left = del.left;
+    }
+    TreeNode aux2 = del.left;
+    while (aux2.right != null) {
+      aux2 = aux2.right;
+    }
+    aux2.right = aux.right;
+  }
+
   @Override
   public String toString() {
     return this.strNodes(this.root);
   }
-  
+
   private String strNodes(TreeNode node) {
-    String str="";
-    if(node!=null){
-      str+=node+"\n";
-      if(node.left!=null){
-        str+=strNodes(node.left);
+    String str = "";
+    if (node != null) {
+      str += node + "\n";
+      if (node.left != null) {
+        str += strNodes(node.left);
       }
-      if(node.right!=null){
-        str+=strNodes(node.right);
+      if (node.right != null) {
+        str += strNodes(node.right);
       }
     }
     return str;

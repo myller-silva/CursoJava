@@ -22,6 +22,7 @@ public class Main {
     }while(n!=0);
   }
 
+  
   private static int menu() {
     String str = "";
     System.out.println("[0] Encerrar");

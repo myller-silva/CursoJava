@@ -124,6 +124,10 @@ public class TreeList {
     TreeNode father = getFather(item);
     TreeNode del = getSon(father, item);
     
+    if(father == null || del == null){
+      return null;
+    }
+    
     switch (del.numberOfChildren()) {
       case 0:
         deleteChildlessNode(father, del);

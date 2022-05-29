@@ -20,7 +20,7 @@ public class Teste {
       System.out.print("value: ");
       n = scan.nextInt();
       scan.nextLine();
-      // System.out.println("father de "+n+" : "+tree.getFather(n));
+      System.out.println("father de "+n+" : "+tree.getFather(n));
     }while(true);
   }
 }

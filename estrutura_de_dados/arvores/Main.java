@@ -59,7 +59,7 @@ public class Main {
         System.out.println(tree);
         break ;
       default:
-        System.out.println("Opcao invalida");
+        System.out.println("Opcao invalida\n");
         break ;
     }
   }
